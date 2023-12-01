@@ -1,4 +1,4 @@
-import { useRegister } from '@hooks/useRegister';
+import { selectedRegisterType, useRegister } from '@hooks/useRegister';
 import { ReactNode } from 'react';
 
 type ProviderContextProps = {
@@ -8,15 +8,15 @@ type ProviderContextProps = {
 import { createContext } from 'react';
 
 type RegisterContextDataProps = {
-  typeRegister: 'CPF' | 'CNPJ'
-  selectedTypeRegister: (typeRegister: 'CPF' | 'CNPJ') => void
+  typeRegister: 'CPF' | 'CNPJ' | undefined;
+  selectedTypeRegister: (selectedRegister: selectedRegisterType) => void;
 }
 
 export const RegisterContext = createContext<RegisterContextDataProps>(
   {} as RegisterContextDataProps
 );
 
-export const ProviderContext = ({ children }: ProviderContextProps) => {
+export const RegisterProvider = ({ children }: ProviderContextProps) => {
   const { typeRegister, selectedTypeRegister } = useRegister();
 
   return (

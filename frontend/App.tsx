@@ -4,6 +4,7 @@ import { useFonts, Roboto_400Regular, Roboto_700Bold } from '@expo-google-fonts/
 
 import { Home } from '@screens/Home';
 import { Loading } from '@components/Loading';
+import { RegisterProvider } from '@contexts/RegisterProvider';
 
 import { THEME } from './src/theme';
 
@@ -18,7 +19,9 @@ export default function App() {
         translucent
       />
       
-      {fontsLoaded ? <Home /> : <Loading />}
+      <RegisterProvider>
+        {fontsLoaded ? <Home /> : <Loading />}
+      </RegisterProvider>
     </NativeBaseProvider>
   );
 }

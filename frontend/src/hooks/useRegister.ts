@@ -1,14 +1,21 @@
 import { useState } from 'react';
 
-const [typeRegister, setTypeRegister] = useState<'CPF' | 'CNPJ'>('CPF');
-
-const selectedTypeRegister = ( typeRegister: 'CPF' | 'CNPJ' ) => {
-  setTypeRegister(typeRegister)
-}
+export type selectedRegisterType = 'Cadastrar usuário' | 'Cadastrar anunciante';
 
 export const useRegister = () => {
-  return ({
+  const [typeRegister, setTypeRegister] = useState<'CPF' | 'CNPJ' | undefined>();
+
+  const selectedTypeRegister = (selectedRegister: selectedRegisterType) => {
+    if (selectedRegister === 'Cadastrar usuário') {
+      setTypeRegister('CPF');
+    } 
+
+    setTypeRegister('CNPJ');
+  };
+
+  return {
     typeRegister,
-    selectedTypeRegister
-  })
-}
+    selectedTypeRegister,
+  };
+};
+
