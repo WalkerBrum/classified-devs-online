@@ -8,7 +8,6 @@ type ButtonProps = IButtonProps & {
 export const Button = ({ title, variant = 'solid', ...rest }: ButtonProps) => {
   return (
     <ButtonNativeBase
-      w="full"
       h={14}
       bg={variant === "outline" ? "transparent" : "green.700"}
       borderColor="green.500"

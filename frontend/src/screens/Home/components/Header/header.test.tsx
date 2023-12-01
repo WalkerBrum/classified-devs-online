@@ -7,11 +7,11 @@ describe("Component: Header", () => {
   it("should be rendered with your site name", () => {
     render(
       <NativeBaseProvider>
-        <Header title="Ache Job for Dev" />
+        <Header title="Achei Job Dev" />
       </NativeBaseProvider>
     );
     
-    const siteNameElement = screen.getByText("Dev Acha Job");
+    const siteNameElement = screen.getByText("Pega Job, Dev!");
     expect(siteNameElement).toBeTruthy();
   });
 });

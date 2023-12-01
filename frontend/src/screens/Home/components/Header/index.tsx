@@ -4,7 +4,7 @@ type HeaderProps = {
   title: string
 }
 
-export const Header = ({ title }:HeaderProps) => {
+export const Header = ({ title }: HeaderProps) => {
   return (
     <Center bg="gray.600" pb={16} pt={20}>
       <Heading 

@@ -7,6 +7,7 @@ import { Loading } from '@components/Loading';
 import { RegisterProvider } from '@contexts/RegisterProvider';
 
 import { THEME } from './src/theme';
+import { UserRegister } from '@screens/UserRegister';
 
 export default function App() {
   const [fontsLoaded] = useFonts({Roboto_400Regular, Roboto_700Bold });
@@ -20,7 +21,7 @@ export default function App() {
       />
       
       <RegisterProvider>
-        {fontsLoaded ? <Home /> : <Loading />}
+        {fontsLoaded ? <UserRegister /> : <Loading />}
       </RegisterProvider>
     </NativeBaseProvider>
   );
