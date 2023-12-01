@@ -6,9 +6,16 @@ import { Input } from '@components/Input';
 import { Button } from '@components/Button';
 
 import { RegisterContext } from '@contexts/RegisterProvider';
+import { useNavigation } from '@react-navigation/native';
+import { AuthNavigatorRoutesProps } from '@routes/app.routes';
 
 export const UserRegister = () => {
   const { typeRegister } = useContext(RegisterContext);
+  const { navigate } = useNavigation<AuthNavigatorRoutesProps>();
+
+  const handleUserRegister = () => {
+    navigate('home');
+  }
   
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
@@ -73,7 +80,7 @@ export const UserRegister = () => {
         </VStack>
 
         <VStack pt={6} pb={2}>
-          <Button title="Cadastrar" />
+          <Button title="Cadastrar" onPress={handleUserRegister}/>
         </VStack>
 
       </VStack>

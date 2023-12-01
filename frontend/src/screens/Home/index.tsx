@@ -26,6 +26,10 @@ export const Home = () => {
     navigate('userRegister');
   }
 
+  const handleLogin = () => {
+    navigate('classified');
+  }
+
   return (
     <VStack>
       <Header title="Pega Job, Dev!" />
@@ -38,7 +42,7 @@ export const Home = () => {
           <Input placeholder="E-mail" />
           <Input placeholder="Senha" />
 
-          <Button title="Acessar" />
+          <Button title="Acessar" onPress={handleLogin}/>
         </VStack>
 
         <VStack space={4} pt={10}>

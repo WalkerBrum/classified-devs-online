@@ -8,13 +8,13 @@ import { AuthNavigatorRoutesProps } from '@routes/app.routes';
 type HeaderProps = {
   textHeader: string;
   firstButton: string;
-  secondButton?: string;
+  secondButton?: boolean;
 }
 
-export const Header = ({ textHeader, firstButton, secondButton }: HeaderProps) => {
+export const Header = ({ textHeader, firstButton, secondButton = false }: HeaderProps) => {
   const { navigate } = useNavigation<AuthNavigatorRoutesProps>();
 
-  const handleChangePage = () => {
+  const handleGoBackHome = () => {
     navigate('home')
   }
   
@@ -36,17 +36,20 @@ export const Header = ({ textHeader, firstButton, secondButton }: HeaderProps) =
         {textHeader}
       </Heading>
 
-      <HStack>
+      <HStack space={2}>
         <Button 
           title={firstButton}
           variant="outline"
           height={12}
-          onPress={handleChangePage}
+          onPress={handleGoBackHome}
         />
 
         {secondButton && (
           <Button 
-            title={secondButton}
+            title="Sair"
+            variant="outline"
+            height={12}
+            onPress={handleGoBackHome}
           />
         )}
       </HStack>
