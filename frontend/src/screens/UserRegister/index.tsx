@@ -1,14 +1,15 @@
 import { useContext } from 'react';
-import { RegisterContext } from '@contexts/RegisterProvider';
 import { HStack, Heading, ScrollView, Text, VStack } from 'native-base';
 
 import { Header } from '@components/Header';
 import { Input } from '@components/Input';
 import { Button } from '@components/Button';
 
+import { RegisterContext } from '@contexts/RegisterProvider';
+
 export const UserRegister = () => {
   const { typeRegister } = useContext(RegisterContext);
-
+  
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <Header 

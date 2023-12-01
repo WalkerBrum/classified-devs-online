@@ -1,5 +1,9 @@
-import { Button } from '@components/Button';
+import { useNavigation } from '@react-navigation/native';
 import { HStack, Heading } from 'native-base';
+
+import { Button } from '@components/Button';
+
+import { AuthNavigatorRoutesProps } from '@routes/app.routes';
 
 type HeaderProps = {
   textHeader: string;
@@ -8,6 +12,12 @@ type HeaderProps = {
 }
 
 export const Header = ({ textHeader, firstButton, secondButton }: HeaderProps) => {
+  const { navigate } = useNavigation<AuthNavigatorRoutesProps>();
+
+  const handleChangePage = () => {
+    navigate('home')
+  }
+  
   return (
     <HStack 
       justifyContent="space-between"
@@ -29,6 +39,9 @@ export const Header = ({ textHeader, firstButton, secondButton }: HeaderProps) =
       <HStack>
         <Button 
           title={firstButton}
+          variant="outline"
+          height={12}
+          onPress={handleChangePage}
         />
 
         {secondButton && (

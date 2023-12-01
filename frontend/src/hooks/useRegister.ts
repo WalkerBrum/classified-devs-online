@@ -8,6 +8,7 @@ export const useRegister = () => {
   const selectedTypeRegister = (selectedRegister: selectedRegisterType) => {
     if (selectedRegister === 'Cadastrar usuário') {
       setTypeRegister('CPF');
+      return;
     } 
 
     setTypeRegister('CNPJ');
