@@ -1,7 +1,8 @@
 import { HStack, Heading, VStack } from 'native-base';
-import { Feather } from '@expo/vector-icons';
 
 import { Header } from '@components/Header'
+import { ButtonIcon } from '@components/ButtonIcon';
+import { THEME } from '@theme/index';
 
 export const Classified = () => {
   return (
@@ -12,12 +13,15 @@ export const Classified = () => {
         secondButton
       />
 
-      <HStack justifyContent="space-between">
+      <HStack justifyContent="space-between" px={7} py={7}>
         <Heading fontFamily="heading" fontSize="xl" color="gray.700">
-          Listagem de 
+          Listagem de anúncios
         </Heading>
 
-        <Feather name="filter" size={24} color="black" />
+        <ButtonIcon 
+          icon="filter"
+          color={THEME.colors.green[700]}
+        />
       </HStack>
     </VStack>
   )
