@@ -31,34 +31,34 @@ export const UserRegister = () => {
 
         <VStack space={2} pt={6} px={2}>
           <VStack >
-            <Text fontFamily="body" fontSize="md" color="gray.500" py={1}>Nome</Text>
+            <Text fontFamily="body" fontSize="sm" color="gray.500" py={1}>Nome</Text>
             <Input />
           </VStack>
 
           <VStack >
-            <Text fontFamily="body" fontSize="md" color="gray.500" py={1}>E-mail</Text>
+            <Text fontFamily="body" fontSize="sm" color="gray.500" py={1}>E-mail</Text>
             <Input />
           </VStack>
 
           <VStack >
-            <Text fontFamily="body" fontSize="md" color="gray.500" py={1}>{typeRegister ? typeRegister : 'CNPJ'}</Text>
+            <Text fontFamily="body" fontSize="sm" color="gray.500" py={1}>{typeRegister ? typeRegister : 'CNPJ'}</Text>
             <Input />
           </VStack>
 
           <VStack >
-            <Text fontFamily="body" fontSize="md" color="gray.500" py={1}>Telefone</Text>
+            <Text fontFamily="body" fontSize="sm" color="gray.500" py={1}>Telefone</Text>
             <Input />
           </VStack>
 
           <VStack>
             <HStack space={4}>
               <VStack flex={1}>
-                <Text fontFamily="body" fontSize="md" color="gray.500" py={1}>Cidade</Text>
+                <Text fontFamily="body" fontSize="sm" color="gray.500" py={1}>Cidade</Text>
                 <Input />
               </VStack>
 
               <VStack w="70">
-                <Text fontFamily="body" fontSize="md" color="gray.500" py={1}>UF</Text>
+                <Text fontFamily="body" fontSize="sm" color="gray.500" py={1}>UF</Text>
                 <Input />
               </VStack>
             </HStack>
@@ -67,12 +67,12 @@ export const UserRegister = () => {
           <VStack>
             <HStack space={4}>
               <VStack flex={1}>
-                <Text fontFamily="body" fontSize="md" color="gray.500" py={1}>Senha</Text>
+                <Text fontFamily="body" fontSize="sm" color="gray.500" py={1}>Senha</Text>
                 <Input />
               </VStack>
 
               <VStack flex={1}>
-                <Text fontFamily="body" fontSize="md" color="gray.500" py={1}>Repetir senha</Text>
+                <Text fontFamily="body" fontSize="sm" color="gray.500" py={1}>Repetir senha</Text>
                 <Input />
               </VStack>
             </HStack>

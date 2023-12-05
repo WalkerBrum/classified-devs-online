@@ -3,6 +3,7 @@ import { HStack, Heading, VStack } from 'native-base';
 import { Header } from '@components/Header'
 import { ButtonIcon } from '@components/ButtonIcon';
 import { THEME } from '@theme/index';
+import { Card } from '@components/Card';
 
 export const Classified = () => {
   return (
@@ -23,6 +24,10 @@ export const Classified = () => {
           color={THEME.colors.green[700]}
         />
       </HStack>
+
+      <Card hasButtons />
+
+      <Card hasButtons />
     </VStack>
   )
 }

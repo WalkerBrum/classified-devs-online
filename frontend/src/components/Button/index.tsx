@@ -3,10 +3,11 @@ import { Button as ButtonNativeBase, IButtonProps, Text } from "native-base";
 type ButtonProps = IButtonProps & {
   title: string;
   variant?: 'solid' | 'outline';
-  height?: number
+  height?: number;
+  fontSize?: string
 }
 
-export const Button = ({ title, variant = 'solid', height = 14, ...rest }: ButtonProps) => {
+export const Button = ({ title, variant = 'solid', height = 14, fontSize = 'sm', ...rest }: ButtonProps) => {
   return (
     <ButtonNativeBase
       h={height}
@@ -21,8 +22,8 @@ export const Button = ({ title, variant = 'solid', height = 14, ...rest }: Butto
     >
       <Text 
         color={variant === "outline" ? "green.500" : "white"} 
-        fontFamily="heading" 
-        fontSize="sm"
+        fontFamily="heading"
+        fontSize={fontSize} 
       >
         {title}
       </Text>

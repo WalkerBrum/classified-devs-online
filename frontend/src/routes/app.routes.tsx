@@ -18,6 +18,11 @@ export const AppRoutes = () => {
   return (
     <Navigator screenOptions={{ headerShown: false }}>
       <Screen 
+        name="classified"
+        component={Classified}
+      />
+      
+      <Screen 
         name="home"
         component={Home}
       />
@@ -27,10 +32,6 @@ export const AppRoutes = () => {
         component={UserRegister}
       />
 
-      <Screen 
-        name="classified"
-        component={Classified}
-      />
     </Navigator>
   );
 }

@@ -12,7 +12,7 @@ export const Input = ({ placeholder, ...rest }: InputProps) => {
       borderColor="gray.600"
       color="gray.600"
       placeholderTextColor="gray.300"
-      fontSize="md"
+      fontSize="sm"
       rounded="lg"
       fontFamily="body"
       {...rest}

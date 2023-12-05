@@ -29,7 +29,7 @@ export const Header = ({ textHeader, firstButton, secondButton = false }: Header
     >
       <Heading
         color="gray.100" 
-        fontSize="lg" 
+        fontSize="md" 
         fontFamily="heading"
         w="150"
       >
@@ -40,7 +40,8 @@ export const Header = ({ textHeader, firstButton, secondButton = false }: Header
         <Button 
           title={firstButton}
           variant="outline"
-          height={12}
+          height={10}
+          fontSize="xss"
           onPress={handleGoBackHome}
         />
 
@@ -48,7 +49,8 @@ export const Header = ({ textHeader, firstButton, secondButton = false }: Header
           <Button 
             title="Sair"
             variant="outline"
-            height={12}
+            height={10}
+            fontSize="xss"
             onPress={handleGoBackHome}
           />
         )}

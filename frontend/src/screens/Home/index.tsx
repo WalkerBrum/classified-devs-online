@@ -37,7 +37,7 @@ export const Home = () => {
       <VStack px={6} pt={10}>
         
         <VStack space={4}>
-          <Text fontFamily="heading" fontSize="lg" color="gray.700">Faça seu login</Text>
+          <Text fontFamily="heading" fontSize="md" color="gray.700">Faça seu login</Text>
 
           <Input placeholder="E-mail" />
           <Input placeholder="Senha" />
@@ -46,7 +46,7 @@ export const Home = () => {
         </VStack>
 
         <VStack space={4} pt={10}>
-          <Text fontFamily="heading" fontSize="lg" color="gray.700">Crie uma conta</Text>
+          <Text fontFamily="heading" fontSize="md" color="gray.700">Crie uma conta</Text>
 
           <Button 
             title="Cadastrar usuário"

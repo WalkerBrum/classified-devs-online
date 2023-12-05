@@ -25,9 +25,10 @@ export const THEME = extendTheme({
     body: 'Roboto_400Regular',
   },
   fontSizes: {
-    xs: 12,
-    sm: 14,
-    md: 16,
+    xss: 12,
+    xs: 14,
+    sm: 16,
+    md: 18,
     lg: 20,
     xl: 24,
   },
