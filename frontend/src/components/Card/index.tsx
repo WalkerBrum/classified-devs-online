@@ -1,31 +1,37 @@
 import { ButtonIcon } from "@components/ButtonIcon";
+import { moneyFormat } from "@utils/moneyFormat";
 import { Box, HStack, Heading, VStack, Text } from "native-base";
 
+type DataProps = {
+  id: string;
+  title: string;
+  mainStacks: string;
+  city: string;
+  uf: string;
+  remuneration: number;
+  workingModel: string;
+  level: string;
+}
+
 type CardProps = {
-  // data: {
-  //   title: string;
-  //   mainStacks: string;
-  //   category: string;
-  //   cidade: string;
-  //   uf: string;
-  //   remuneration: number;
-  //   workingModel: string
-  // }
+  data: DataProps
   hasButtons?: boolean; 
 }
 
-export const Card = ({ hasButtons = false }: CardProps) => {
+export const Card = ({ data, hasButtons = false }: CardProps) => {
+  const { title, mainStacks, city, uf, remuneration, workingModel, level } = data;
+
+  const formattedMoney = moneyFormat(remuneration);
+
   return (
     <Box 
       borderColor="gray.200" 
       borderRadius="lg" 
       borderWidth={2} 
       p={5} 
-      mx={7}
-      my={3}
     >
       <HStack justifyContent="space-between" alignItems="center">
-        <Heading fontFamily="heading" fontSize="md" color="gray.700">Desenvolvedor Full Stack</Heading>
+        <Heading fontFamily="heading" fontSize="md" color="gray.700">{title}</Heading>
 
         { hasButtons && (
           <HStack space={2}>
@@ -46,15 +52,16 @@ export const Card = ({ hasButtons = false }: CardProps) => {
 
       <VStack >
         <VStack py={2}>
-          <Text fontFamily="heading" fontSize="sm" color="gray.400">Principais tecnologias: Typescript, React e React Native</Text>
+          <Text fontFamily="heading" fontSize="sm" color="gray.400">Principais tecnologias: {mainStacks}</Text>
         </VStack>
-
-        <Text fontFamily="body" fontSize="sm" color="gray.400">Remuneração: R$ 3.500,00</Text>
-        <Text fontFamily="body" fontSize="sm" color="gray.400">Modelo de trabalho: Presencial</Text>
+        
+        <Text fontFamily="body" fontSize="sm" color="gray.400">Nível: {level}</Text>
+        <Text fontFamily="body" fontSize="sm" color="gray.400">Remuneração: {formattedMoney}</Text>
+        <Text fontFamily="body" fontSize="sm" color="gray.400">Modelo de trabalho: {workingModel}</Text>
 
         <HStack>
-          <Text fontFamily="body" fontSize="sm" color="gray.400">Cidade: Belo Horizonte - </Text>
-          <Text fontFamily="body" fontSize="sm" color="gray.400">MG</Text>
+          <Text fontFamily="body" fontSize="sm" color="gray.400">Cidade: {city} - </Text>
+          <Text fontFamily="body" fontSize="sm" color="gray.400">{uf}</Text>
         </HStack>
       </VStack>
     </Box>
