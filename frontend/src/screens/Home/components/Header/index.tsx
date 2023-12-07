@@ -11,6 +11,7 @@ export const Header = ({ title }: HeaderProps) => {
         color="gray.100" 
         fontSize="xl" 
         fontFamily="heading"
+        testID="headerTitle"
       >
         {title}
       </Heading>

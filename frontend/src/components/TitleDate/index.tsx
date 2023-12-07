@@ -6,7 +6,7 @@ type TitleDateProps = {
 
 export const TitleDate = ({ date }: TitleDateProps ) => {
   return (
-    <Heading fontFamily="heading" fontSize="md" color="gray.700">
+    <Heading fontFamily="heading" fontSize="md" color="gray.700" pt={6} pb={2} px={2}>
       {date}
     </Heading>
   )

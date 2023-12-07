@@ -1,24 +1,24 @@
-import { SectionList } from 'react-native';
-import { HStack, Heading, VStack } from 'native-base';
+import { HStack, Heading, VStack, SectionList, ScrollView, Box } from 'native-base';
 
 import { Header } from '@components/Header'
 import { ButtonIcon } from '@components/ButtonIcon';
 import { THEME } from '@theme/index';
 import { Card } from '@components/Card';
-
-import { dataClassified } from '../../data/classified';
 import { TitleDate } from '@components/TitleDate';
 
+import { dataClassified } from '../../data/classified';
+
 export const Classified = () => {
+  
   return (
-    <VStack>
+    <VStack flex={1}>
       <Header 
         textHeader="Walker Lobato"
         firstButton="Meus Anúncios"
         secondButton
       />
 
-      <VStack px={7} py={7}>
+      <VStack flex={1} px={7} py={7}>
         <HStack justifyContent="space-between">
           <Heading fontFamily="heading" fontSize="xl" color="gray.700">
             Listagem de anúncios
@@ -28,19 +28,21 @@ export const Classified = () => {
             color={THEME.colors.green[700]}
           />
         </HStack>
-        <SectionList
-          sections={dataClassified}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <Card data={item} />
-          )}
-          renderSectionHeader={({ section: {date} }) => (
-            <TitleDate date={date} />
-          )}
-          showsVerticalScrollIndicator={false}
-        />
+
+        <Box flex={1} py={6}>
+          <SectionList
+            sections={dataClassified}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => (
+              <Card data={item} />
+            )}
+            renderSectionHeader={({ section: {date} }) => (
+              <TitleDate date={date} />
+            )}
+            showsVerticalScrollIndicator={false}
+          />
+        </Box>
       </VStack>
-      
     </VStack>
   )
 }
