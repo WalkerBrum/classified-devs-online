@@ -1,32 +1,43 @@
-import React, { useState } from 'react';
-import { Box, CheckIcon, Input, Modal, Pressable, VStack } from 'native-base';
+import  { useState } from 'react';
+import { Box, ChevronDownIcon, Input, Modal, Pressable, VStack } from 'native-base';
 
-export const InputSelect = () => {
+import { THEME } from '@theme/index';
+import { jobTitle } from '../../data/optionsToRegister';
+
+type Option = {
+  label: string;
+  value: string;
+};
+
+type InputSelectProps = {
+  placeholder: string;
+  color: keyof typeof THEME.colors | string;
+  options: Option[];
+}
+
+export const InputSelect = ({ placeholder, color, options }: InputSelectProps) => {
   const [service, setService] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
-  const options = [
-    { label: "UX Research", value: "ux" },
-    { label: "Web Development", value: "web" },
-    { label: "Cross Platform Development", value: "cross" },
-    { label: "UI Designing", value: "ui" },
-    { label: "Backend Development", value: "backend" },
-  ];
-
   return (
     <Box maxW="300">
-      <Pressable onPress={() => setIsOpen(true)}>
+      <Pressable onPress={() => setIsOpen(true)} borderColor="gray.600"
+          color="gray.600">
         <Input
-          placeholder="Choose Service"
+          placeholder={placeholder}
+          placeholderTextColor="gray.600"
           value={service}
+          h={14}
+          borderColor="gray.600"
+          color="gray.600"
+          rounded="lg"
+          fontFamily="body"
           isDisabled
-          _disabled={{
-            cursor: 'pointer',
-          }}
           InputRightElement={
-            <Pressable onPress={() => setIsOpen(true)}>
+            <Pressable onPress={() => setIsOpen(true)} borderColor="gray.600"
+            color="gray.600">
               <Box p={2}>
-                <CheckIcon size="5" color="teal.600" />
+                <ChevronDownIcon size="4" color={color} />
               </Box>
             </Pressable>
           }
@@ -36,11 +47,12 @@ export const InputSelect = () => {
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
         <Modal.Content>
           <Modal.CloseButton />
-          <Modal.Header>Choose Service</Modal.Header>
+          <Modal.Header>{placeholder}</Modal.Header>
           <Modal.Body>
             <VStack space={2}>
               {options.map((option) => (
                 <Pressable
+                  color="gray.600"
                   key={option.value}
                   onPress={() => {
                     setService(option.value);
