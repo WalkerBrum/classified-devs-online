@@ -3,11 +3,13 @@ import { createNativeStackNavigator, NativeStackNavigationProp} from '@react-nav
 import { Home } from '@screens/Home';
 import { UserRegister } from '@screens/UserRegister';
 import { Classified } from '@screens/Classified';
+import { AddClassified } from '@screens/AddClassified';
 
 type AuthRoutes = {
   home: undefined;
   userRegister: undefined;
   classified: undefined;
+  addClassified: undefined;
 };
 
 export type AuthNavigatorRoutesProps = NativeStackNavigationProp<AuthRoutes>;
@@ -18,8 +20,8 @@ export const AppRoutes = () => {
   return (
     <Navigator screenOptions={{ headerShown: false }}>
       <Screen 
-        name="classified"
-        component={Classified}
+        name="addClassified"
+        component={AddClassified}
       />
       
       <Screen 
@@ -30,6 +32,11 @@ export const AppRoutes = () => {
       <Screen 
         name="userRegister"
         component={UserRegister}
+      />
+
+      <Screen 
+        name="classified"
+        component={Classified}
       />
 
     </Navigator>
