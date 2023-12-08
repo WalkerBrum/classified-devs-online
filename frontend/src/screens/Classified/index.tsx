@@ -19,7 +19,7 @@ export const Classified = () => {
       />
 
       <VStack flex={1} px={7} py={7}>
-        <HStack justifyContent="space-between">
+        <HStack justifyContent="space-between" pb={6}>
           <Heading fontFamily="heading" fontSize="xl" color="gray.700">
             Listagem de anúncios
           </Heading>
@@ -29,7 +29,7 @@ export const Classified = () => {
           />
         </HStack>
 
-        <Box flex={1} py={6}>
+        <Box flex={1}>
           <SectionList
             sections={dataClassified}
             keyExtractor={(item) => item.id}
