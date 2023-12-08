@@ -18,53 +18,61 @@ export const UserRegister = () => {
   }
   
   return (
-    <VStack>
+    <VStack flex={1}>
       <Header 
         textHeader="Pega Job, Dev!"
         firstButton="Home"
+        navigation={handleUserRegister}
       />
 
-      <VStack px={7} py={7}>
+      <VStack px={7} py={7} flex={1}>
         <Heading fontFamily="heading" fontSize="xl" color="gray.700" pb={6}>
           Cadastro de {typeRegister === 'CPF' ? 'Usuário' : 'Anunciante'}
         </Heading>
 
-        <ScrollView>
-          <VStack space={2} px={2}>
-            <VStack >
+        <ScrollView flex={1} showsVerticalScrollIndicator={false}>
+          <VStack space={2}>
+            <VStack>
               <Text fontFamily="body" fontSize="sm" color="gray.500" py={1}>Nome</Text>
               <Input />
             </VStack>
+
             <VStack >
               <Text fontFamily="body" fontSize="sm" color="gray.500" py={1}>E-mail</Text>
               <Input />
             </VStack>
-            <VStack >
+
+            <VStack>
               <Text fontFamily="body" fontSize="sm" color="gray.500" py={1}>{typeRegister ? typeRegister : 'CNPJ'}</Text>
               <Input />
             </VStack>
+
             <VStack >
               <Text fontFamily="body" fontSize="sm" color="gray.500" py={1}>Telefone</Text>
               <Input />
             </VStack>
+
             <VStack>
               <HStack space={4}>
                 <VStack flex={1}>
                   <Text fontFamily="body" fontSize="sm" color="gray.500" py={1}>Cidade</Text>
                   <Input />
                 </VStack>
+
                 <VStack w="70">
                   <Text fontFamily="body" fontSize="sm" color="gray.500" py={1}>UF</Text>
                   <Input />
                 </VStack>
               </HStack>
             </VStack>
+
             <VStack>
               <HStack space={4}>
                 <VStack flex={1}>
                   <Text fontFamily="body" fontSize="sm" color="gray.500" py={1}>Senha</Text>
                   <Input />
                 </VStack>
+
                 <VStack flex={1}>
                   <Text fontFamily="body" fontSize="sm" color="gray.500" py={1}>Repetir senha</Text>
                   <Input />
@@ -72,6 +80,7 @@ export const UserRegister = () => {
               </HStack>
             </VStack>
           </VStack>
+
           <VStack pt={6} pb={2}>
             <Button title="Cadastrar" onPress={handleUserRegister}/>
           </VStack>

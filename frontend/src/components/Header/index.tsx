@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
-import { HStack, Heading } from 'native-base';
+import { HStack, Heading, VStack } from 'native-base';
 
 import { Button } from '@components/Button';
 
@@ -9,9 +9,10 @@ type HeaderProps = {
   textHeader: string;
   firstButton: string;
   secondButton?: boolean;
+  navigation: () => void;
 }
 
-export const Header = ({ textHeader, firstButton, secondButton = false }: HeaderProps) => {
+export const Header = ({ textHeader, firstButton, secondButton = false, navigation }: HeaderProps) => {
   const { navigate } = useNavigation<AuthNavigatorRoutesProps>();
 
   const handleGoBackHome = () => {
@@ -23,26 +24,26 @@ export const Header = ({ textHeader, firstButton, secondButton = false }: Header
       justifyContent="space-between"
       alignItems="center" 
       bg="gray.600" 
-      pb={12} 
-      pt={16}
+      pb={8} 
+      pt={12}
       px={6}
     >
       <Heading
         color="gray.100" 
-        fontSize="md" 
+        fontSize="lg" 
         fontFamily="heading"
-        w="150"
+        w="200"
       >
         {textHeader}
       </Heading>
 
-      <HStack space={2}>
+      <VStack space={2}>
         <Button 
           title={firstButton}
           variant="outline"
           height={10}
-          fontSize="xss"
-          onPress={handleGoBackHome}
+          fontSize="xs"
+          onPress={navigation}
         />
 
         {secondButton && (
@@ -50,11 +51,11 @@ export const Header = ({ textHeader, firstButton, secondButton = false }: Header
             title="Sair"
             variant="outline"
             height={10}
-            fontSize="xss"
+            fontSize="xs"
             onPress={handleGoBackHome}
           />
         )}
-      </HStack>
+      </VStack>
     </HStack>
   )
 }

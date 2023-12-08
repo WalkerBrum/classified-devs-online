@@ -1,4 +1,5 @@
 import { VStack, Heading, Text, HStack, ScrollView } from 'native-base';
+import { useNavigation } from '@react-navigation/native';
 
 import { Header } from '@components/Header';
 import { InputSelect } from '@components/InputSelect';
@@ -6,17 +7,27 @@ import { THEME } from '@theme/index';
 import { Input } from '@components/Input';
 import { Button } from '@components/Button';
 
-import { jobTitle } from '../../data/optionsToRegister';
-import { level } from '../../data/optionsToRegister';
-import { workinModel } from '../../data/optionsToRegister';
+import { jobTitle, level, workinModel } from '@data/optionsToRegister';
+import { AuthNavigatorRoutesProps } from '@routes/app.routes';
 
 export const AddClassified = () => {
+  const { navigate, goBack } = useNavigation<AuthNavigatorRoutesProps>();
+
+  const handleAddClassified = () => {
+    navigate('addClassified');
+  }
+
+  const handleGoBackMyClassified = () => {
+    navigate('myClassified');
+  }
+
   return (
     <VStack flex={1}>
       <Header
         textHeader="LabsIF"
         firstButton="Meus Anúncios"
         secondButton
+        navigation={handleGoBackMyClassified}
       />
 
       <VStack px={7} py={7} flex={1}>
@@ -25,7 +36,7 @@ export const AddClassified = () => {
         </Heading>
 
         <ScrollView flex={1} showsVerticalScrollIndicator={false}>
-          <VStack space={2} px={2}>
+          <VStack space={2}>
             <VStack>
               <Text fontFamily="body" fontSize="sm" color="gray.500" py={2}>Título da vaga</Text>
               <InputSelect
@@ -83,7 +94,7 @@ export const AddClassified = () => {
             </VStack>
 
             <VStack pt={6} pb={2}>
-              <Button title="Cadastrar" />
+              <Button title="Cadastrar" onPress={handleAddClassified}/>
             </VStack>
           </VStack>
         </ScrollView>

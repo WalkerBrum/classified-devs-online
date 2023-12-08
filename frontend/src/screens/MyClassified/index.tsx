@@ -1,39 +1,43 @@
-import { HStack, Heading, VStack, SectionList, ScrollView, Box } from 'native-base';
+import { VStack, Box, Heading, HStack, SectionList} from 'native-base';
 import { useNavigation } from '@react-navigation/native';
 
-import { Header } from '@components/Header'
-import { ButtonIcon } from '@components/ButtonIcon';
+import { Header } from '@components/Header';
 import { Card } from '@components/Card';
 import { TitleDate } from '@components/TitleDate';
+import { Button } from '@components/Button';
 
 import { dataClassified } from '@data/classified';
-import { THEME } from '@theme/index';
 import { AuthNavigatorRoutesProps } from '@routes/app.routes';
 
-export const Classified = () => {
+export const MyClassified = () => {
   const { navigate } = useNavigation<AuthNavigatorRoutesProps>();
 
-  const handleMyClassified = () => {
-    navigate('myClassified');
+  const handleNewClassified = () => {
+    navigate('addClassified');
+  }
+
+  const handleGoBackAllClassified = () => {
+    navigate('classified');
   }
 
   return (
     <VStack flex={1}>
-      <Header 
-        textHeader="Walker Lobato"
-        firstButton="Meus Anúncios"
+      <Header
+        textHeader="LabsIF"
+        firstButton="Todos Anúncios"
         secondButton
-        navigation={handleMyClassified}
+        navigation={handleGoBackAllClassified}
       />
 
       <VStack flex={1} px={7} py={7}>
-        <HStack justifyContent="space-between" pb={6}>
+        <HStack justifyContent="space-between" pb={6} alignItems="center">
           <Heading fontFamily="heading" fontSize="xl" color="gray.700">
-            Listagem de anúncios
+            Meus anúncios
           </Heading>
-          <ButtonIcon
-            icon="filter"
-            color={THEME.colors.green[700]}
+          <Button 
+            title="Novo anúncio"
+            height={12}
+            onPress={handleNewClassified}
           />
         </HStack>
 
