@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { Text, VStack } from 'native-base';
 import { useNavigation } from '@react-navigation/native';
+import { Controller } from 'react-hook-form';
 
 import { Header } from './components/Header';
 import { Input } from '@components/Input';
@@ -9,9 +10,10 @@ import { Button } from '@components/Button';
 import { RegisterContext } from '@contexts/RegisterProvider';
 
 import { AuthNavigatorRoutesProps } from '@routes/app.routes';
-import { usersGetAll } from '@storage/users/usersGetALL';
+import { useLoginForm } from '@hooks/useLoginForm';
 
 export const Home = () => {
+  const { control, handleSubmit, onSubmit, errors } = useLoginForm();
   const { selectedTypeRegister } = useContext(RegisterContext);
   const { navigate } = useNavigation<AuthNavigatorRoutesProps>();
 
@@ -27,13 +29,6 @@ export const Home = () => {
     navigate('userRegister');
   }
 
-  const handleLogin = async () => {
-    const users = await usersGetAll();
-
-    console.log(users);
-    navigate('classified');
-  }
-
   return (
     <VStack>
       <Header title="Pega Job, Dev!" />
@@ -43,10 +38,35 @@ export const Home = () => {
         <VStack space={4}>
           <Text fontFamily="heading" fontSize="md" color="gray.700">Faça seu login</Text>
 
-          <Input placeholder="E-mail" />
-          <Input placeholder="Senha" />
+          <Controller 
+            control={control}
+            name="email"
+            render={({ field: { onChange, onBlur, value } }) => (
+              <Input
+                placeholder="E-mail"
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+                errorMessage={errors.email?.message}
+              />
+            )}
+          />
 
-          <Button title="Acessar" onPress={handleLogin}/>
+          <Controller 
+            control={control}
+            name="password"
+            render={({ field: { onChange, onBlur, value } }) => (
+              <Input
+                placeholder="Senha"
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+                errorMessage={errors.password?.message}
+              />
+            )}
+          />
+
+          <Button title="Acessar" onPress={handleSubmit(onSubmit)}/>
         </VStack>
 
         <VStack space={4} pt={10}>
