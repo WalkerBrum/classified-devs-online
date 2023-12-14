@@ -20,12 +20,7 @@ const { Navigator, Screen } = createNativeStackNavigator<AuthRoutes>();
 
 export const AppRoutes = () => {
   return (
-    <Navigator screenOptions={{ headerShown: false }}>
-      <Screen 
-        name="myClassified"
-        component={MyClassified}
-      />
-      
+    <Navigator screenOptions={{ headerShown: false }}>    
       <Screen 
         name="home"
         component={Home}
@@ -39,6 +34,11 @@ export const AppRoutes = () => {
       <Screen 
         name="classified"
         component={Classified}
+      />
+
+      <Screen 
+        name="myClassified"
+        component={MyClassified}
       />
 
       <Screen 

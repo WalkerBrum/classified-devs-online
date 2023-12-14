@@ -1,12 +1,12 @@
-export type usersStorageProps = {
+export type userStorage = {
   id: string;
-  name: string;
+  nameOrCorporateReason: string;
   email: string;
-  cpf?: string;
-  cnpj?: string;
+  cpfOrCnpj: string;
   phone: string;
   city: string;
   uf: string;
-  passwords: string;
+  password: string;
+  repeatPassword: string;
   date_created: string;
 }
