@@ -45,6 +45,7 @@ export const UserRegister = () => {
                     onBlur={onBlur}
                     onChangeText={onChange}
                     value={value}
+                    errorMessage={errors.nameOrCorporateReason?.message}
                   />
                 )}
               />
@@ -60,6 +61,7 @@ export const UserRegister = () => {
                     onBlur={onBlur}
                     onChangeText={onChange}
                     value={value}
+                    errorMessage={errors.email?.message}
                   />
                 )}
               />
@@ -75,6 +77,7 @@ export const UserRegister = () => {
                     onBlur={onBlur}
                     onChangeText={onChange}
                     value={value}
+                    errorMessage={errors.cpfOrCnpj?.message}
                   />
                 )}
               />
@@ -90,6 +93,7 @@ export const UserRegister = () => {
                     onBlur={onBlur}
                     onChangeText={onChange}
                     value={value}
+                    errorMessage={errors.phone?.message}
                   />
                 )}
               />
@@ -107,6 +111,7 @@ export const UserRegister = () => {
                         onBlur={onBlur}
                         onChangeText={onChange}
                         value={value}
+                        errorMessage={errors.city?.message}
                       />
                     )}
                   />
@@ -122,6 +127,7 @@ export const UserRegister = () => {
                         onBlur={onBlur}
                         onChangeText={onChange}
                         value={value}
+                        errorMessage={errors.uf?.message}
                       />
                     )}
                   />
@@ -141,6 +147,7 @@ export const UserRegister = () => {
                         onBlur={onBlur}
                         onChangeText={onChange}
                         value={value}
+                        errorMessage={errors.password?.message}
                       />
                     )}
                   />
@@ -156,6 +163,7 @@ export const UserRegister = () => {
                         onBlur={onBlur}
                         onChangeText={onChange}
                         value={value}
+                        errorMessage={errors.repeatPassword?.message}
                       />
                     )}
                   />
