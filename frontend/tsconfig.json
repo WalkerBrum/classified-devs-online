@@ -39,6 +39,9 @@
       ],
       "@data/*": [
         "./src/data/*"
+      ],
+      "@schemas/*": [
+        "./src/schemas/*"
       ]
     }
   }
