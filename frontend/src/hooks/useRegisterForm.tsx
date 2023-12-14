@@ -1,10 +1,14 @@
+import { useContext } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { AuthNavigatorRoutesProps } from '@routes/app.routes';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+
+import { AuthNavigatorRoutesProps } from '@routes/app.routes';
 import { userRegisterSchema } from '../schemas/userRegister';
 import { RegisterContext } from '@contexts/RegisterProvider';
-import { useContext } from 'react';
+import { userCreate } from '@storage/users/userCreate';
+import { AppError } from '@utils/AppError';
+import { Alert } from 'react-native';
 
 type RegisterFormDataProps = {
   nameOrCorporateReason: string;
@@ -27,10 +31,24 @@ export const useRegisterForm = () => {
 
   const { navigate } = useNavigation<AuthNavigatorRoutesProps>();
 
-  const onSubmit = (data: RegisterFormDataProps) => {
-    console.log(data);
+  const onSubmit = async (data: RegisterFormDataProps) => {
+    try {
+      const date_created = new Date();
+      const dataWithDate = { ...data, date_created }; 
 
-    navigate('home')
+      await userCreate(dataWithDate);
+
+      navigate('home')
+
+    } catch (error) {
+      if (error instanceof AppError) {
+        Alert.alert('Usuário', error.message);
+
+      } else {
+        Alert.alert('Usuário', 'Não foi possível criar o novo usuário');
+        console.log(error);
+      }
+    }
   }
 
   return {

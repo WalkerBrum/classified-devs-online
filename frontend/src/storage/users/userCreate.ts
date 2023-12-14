@@ -3,11 +3,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { USERS_COLLECTION } from '@storage/storageConfig';
 import { AppError } from '@utils/AppError';
 
-import { usersStorageProps } from 'src/@types/usersStorage';
+import { userStorage } from 'src/@types/userStorage';
 
 import { usersGetAll } from './usersGetALL';
 
-export const usersCreate = async( newUser: usersStorageProps) => {
+export const userCreate = async(newUser: userStorage) => {
   try {
     const storageUsers = await usersGetAll();
     const userAlreadyExists = storageUsers.find(user => user.email === newUser.email)

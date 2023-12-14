@@ -1,5 +1,4 @@
 export type userStorage = {
-  id: string;
   nameOrCorporateReason: string;
   email: string;
   cpfOrCnpj: string;
@@ -8,5 +7,5 @@ export type userStorage = {
   uf: string;
   password: string;
   repeatPassword: string;
-  date_created: string;
+  date_created: date;
 }

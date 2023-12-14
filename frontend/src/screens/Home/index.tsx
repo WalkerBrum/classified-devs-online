@@ -9,6 +9,7 @@ import { Button } from '@components/Button';
 import { RegisterContext } from '@contexts/RegisterProvider';
 
 import { AuthNavigatorRoutesProps } from '@routes/app.routes';
+import { usersGetAll } from '@storage/users/usersGetALL';
 
 export const Home = () => {
   const { selectedTypeRegister } = useContext(RegisterContext);
@@ -26,7 +27,10 @@ export const Home = () => {
     navigate('userRegister');
   }
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
+    const users = await usersGetAll();
+
+    console.log(users);
     navigate('classified');
   }
 
