@@ -57,6 +57,7 @@ export const Home = () => {
             name="password"
             render={({ field: { onChange, onBlur, value } }) => (
               <Input
+                isPassword
                 placeholder="Senha"
                 onBlur={onBlur}
                 onChangeText={onChange}

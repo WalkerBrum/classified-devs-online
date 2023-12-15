@@ -144,6 +144,7 @@ export const UserRegister = () => {
                     name="password"
                     render={({ field: { onChange, onBlur, value } }) => (
                       <Input
+                        isPassword
                         onBlur={onBlur}
                         onChangeText={onChange}
                         value={value}
@@ -160,6 +161,7 @@ export const UserRegister = () => {
                     name="repeatPassword"
                     render={({ field: { onChange, onBlur, value } }) => (
                       <Input
+                        isPassword
                         onBlur={onBlur}
                         onChangeText={onChange}
                         value={value}
