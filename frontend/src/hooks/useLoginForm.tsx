@@ -29,6 +29,8 @@ export const useLoginForm = () => {
     try {
       const usersRegister = await usersGetAll();
 
+      console.log(usersRegister)
+
       const user = usersRegister.find(user => user.email === data.email);
 
       if (user) {
