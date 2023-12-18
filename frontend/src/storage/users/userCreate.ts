@@ -10,10 +10,16 @@ import { usersGetAll } from './usersGetALL';
 export const userCreate = async(newUser: userStorage) => {
   try {
     const storageUsers = await usersGetAll();
-    const userAlreadyExists = storageUsers.find(user => user.email === newUser.email)
+    const alreadyExistsEmail = storageUsers.some(user => user.email === newUser.email);
 
-    if (userAlreadyExists) {
-      throw new AppError('Usuário já cadastrado')
+    if (alreadyExistsEmail) {
+      throw new AppError('E-mail já cadastrado!')
+    }
+
+    const alreadyExistscpfOrCnpj = storageUsers.some(user => user.cpfOrCnpj === newUser.cpfOrCnpj);
+
+    if (alreadyExistscpfOrCnpj) {
+      throw new AppError('CPF ou CNPJ já cadastrado!')
     }
 
     const storage = JSON.stringify([...storageUsers, newUser]);
