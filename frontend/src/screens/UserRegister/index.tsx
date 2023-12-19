@@ -24,7 +24,7 @@ export const UserRegister = () => {
     <VStack flex={1}>
       <Header 
         textHeader="Pega Job, Dev!"
-        firstButton="Home"
+        textFirstButton="Home"
         navigation={handleGoBackHome}
       />
 

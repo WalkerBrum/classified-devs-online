@@ -23,8 +23,9 @@ export const Classified = () => {
   return (
     <VStack flex={1}>
       <Header 
-        textHeader="Walker Lobato"
-        firstButton="Meus Anúncios"
+        textHeader={dataUserLogin?.nameOrCorporateReason}
+        textFirstButton="Meus Anúncios"
+        firstButton={dataUserLogin?.typeUser === "advertiser"}
         secondButton
         navigation={handleMyClassified}
       />

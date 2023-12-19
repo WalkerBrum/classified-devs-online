@@ -8,7 +8,6 @@ import { Button } from '@components/Button';
 
 import { dataClassified } from '@data/classified';
 import { AuthNavigatorRoutesProps } from '@routes/app.routes';
-import { classifiedGetAll } from '@storage/classified/classifiedGetAll';
 
 export const MyClassified = () => {
   const { navigate } = useNavigation<AuthNavigatorRoutesProps>();
@@ -25,7 +24,7 @@ export const MyClassified = () => {
     <VStack flex={1}>
       <Header
         textHeader="LabsIF"
-        firstButton="Todos Anúncios"
+        textFirstButton="Todos Anúncios"
         secondButton
         navigation={handleGoBackAllClassified}
       />
