@@ -2,7 +2,8 @@ export type userStorage = {
   nameOrCorporateReason: string;
   email: string;
   cpfOrCnpj: string;
-  phone: string;
+  typeUser: string;
+  phone: string; 
   city: string;
   uf: string;
   password: string;
