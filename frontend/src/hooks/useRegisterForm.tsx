@@ -33,10 +33,13 @@ export const useRegisterForm = () => {
 
   const onSubmit = async (data: RegisterFormDataProps) => {
     try {
-      const date_created = new Date();
-      const dataWithDate = { ...data, date_created }; 
+      const userStorage = { 
+        ...data,
+        typeUser: typeRegister === "CPF" ? 'user' : 'advertiser', 
+        date_created: new Date(),  
+      }; 
 
-      await userCreate(dataWithDate);
+      await userCreate(userStorage);
 
       navigate('home')
 
