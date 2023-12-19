@@ -4,11 +4,12 @@ import { DataUserLoginProps } from "src/@types/userLogin";
 export const useDataLogin = () => {
   const [dataUserLogin, setDataUserLogin] = useState<DataUserLoginProps>();
 
-  const getDataUserLogin = ({ nameOrCorporateReason, cpfOrCnpj }: DataUserLoginProps) => {
+  const getDataUserLogin = ({ nameOrCorporateReason, cpfOrCnpj, typeUser }: DataUserLoginProps) => {
 
     setDataUserLogin({
       nameOrCorporateReason,
-      cpfOrCnpj
+      cpfOrCnpj,
+      typeUser
     });
   }
 
