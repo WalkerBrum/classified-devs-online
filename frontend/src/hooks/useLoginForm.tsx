@@ -9,7 +9,6 @@ import { AppError } from '@utils/AppError';
 import { usersGetAll } from '@storage/users/usersGetALL';
 import { AuthNavigatorRoutesProps } from '@routes/app.routes';
 import { RegisterContext } from '@contexts/RegisterProvider';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 type LoginDataForm = {
   email: string;
@@ -24,12 +23,11 @@ export const useLoginForm = () => {
   });
   
   const { navigate } = useNavigation<AuthNavigatorRoutesProps>();
-  const { getDataUserLogin } = useContext(RegisterContext)
+  const { getDataUserLogin } = useContext(RegisterContext);
 
   const onSubmit = async (data: LoginDataForm) => {
     try {
       const usersRegister = await usersGetAll();
-
       const user = usersRegister.find(user => user.email === data.email);
 
       if (user) {
@@ -37,6 +35,7 @@ export const useLoginForm = () => {
           getDataUserLogin({
             nameOrCorporateReason: user.nameOrCorporateReason,
             cpfOrCnpj: user.cpfOrCnpj,
+            typeUser:user.typeUser
           });
 
           navigate('classified');

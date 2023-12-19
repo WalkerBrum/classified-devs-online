@@ -9,9 +9,12 @@ import { TitleDate } from '@components/TitleDate';
 import { dataClassified } from '@data/classified';
 import { THEME } from '@theme/index';
 import { AuthNavigatorRoutesProps } from '@routes/app.routes';
+import { useContext } from 'react';
+import { RegisterContext } from '@contexts/RegisterProvider';
 
 export const Classified = () => {
   const { navigate } = useNavigation<AuthNavigatorRoutesProps>();
+  const { dataUserLogin } = useContext(RegisterContext);
 
   const handleMyClassified = () => {
     navigate('myClassified');
