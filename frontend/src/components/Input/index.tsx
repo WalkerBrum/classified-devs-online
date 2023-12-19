@@ -5,6 +5,7 @@ type InputProps = IInputProps & {
   height?: number;
   errorMessage?: string | null;
   isPassword?: boolean;
+  isMultiline?: boolean;
 }
 
 export const Input = (
@@ -13,7 +14,8 @@ export const Input = (
     height = 14, 
     errorMessage = null, 
     isPassword,  
-    isInvalid, 
+    isInvalid,
+    isMultiline, 
     ...rest 
   }: InputProps) => {
   const invalid = !!errorMessage || isInvalid;
@@ -30,6 +32,8 @@ export const Input = (
         fontSize="sm"
         rounded="lg"
         fontFamily="body"
+        multiline={isMultiline} 
+        textAlignVertical={isMultiline ? 'top' : 'center'}
         isInvalid={invalid}
         _invalid={{
           borderWidth: 1,
