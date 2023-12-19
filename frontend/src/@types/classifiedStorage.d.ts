@@ -1,6 +1,6 @@
 export type ClassifiedStorage = {
   id: string;
-  cpfOrCnpj: string;
+  cpfOrCnpj: string | undefined;
   jobTitle: string;
   mainSkills: string;
   level: string;
