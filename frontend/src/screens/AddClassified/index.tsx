@@ -1,5 +1,6 @@
 import { VStack, Heading, Text, HStack, ScrollView } from 'native-base';
 import { useNavigation } from '@react-navigation/native';
+import { Controller } from 'react-hook-form';
 
 import { Header } from '@components/Header';
 import { InputSelect } from '@components/InputSelect';
@@ -7,15 +8,13 @@ import { THEME } from '@theme/index';
 import { Input } from '@components/Input';
 import { Button } from '@components/Button';
 
-import { jobTitle, level, workinModel } from '@data/optionsToRegister';
+import { jobTitle, level, workingModel } from '@data/optionsToRegister';
 import { AuthNavigatorRoutesProps } from '@routes/app.routes';
+import { useClassifiedForm } from '@hooks/useClassifiedForm';
 
 export const AddClassified = () => {
-  const { navigate, goBack } = useNavigation<AuthNavigatorRoutesProps>();
-
-  const handleAddClassified = () => {
-    navigate('addClassified');
-  }
+  const { navigate } = useNavigation<AuthNavigatorRoutesProps>();
+  const { control, handleSubmit, onSubmit, errors } = useClassifiedForm();
 
   const handleGoBackMyClassified = () => {
     navigate('myClassified');
@@ -39,38 +38,92 @@ export const AddClassified = () => {
           <VStack space={2}>
             <VStack>
               <Text fontFamily="body" fontSize="sm" color="gray.500" py={2}>Título da vaga</Text>
-              <InputSelect
-                placeholder="Selecione o título"
-                color={THEME.colors.black}
-                options={jobTitle}
+              <Controller 
+                control={control}
+                name="jobTitle"
+                render={({ field: { onChange, onBlur, value } }) => (
+                  <InputSelect
+                    placeholder="Selecione o título"
+                    color={THEME.colors.black}
+                    options={jobTitle}
+                    onBlur={onBlur}
+                    onChangeText={onChange}
+                    value={value}
+                    errorMessage={errors.jobTitle?.message}
+                  />
+                )}
               />
             </VStack>
 
             <VStack>
               <Text fontFamily="body" fontSize="sm" color="gray.500" py={2}>Principais Tecnologias</Text>
-              <Input />
+              <Controller 
+                control={control}
+                name="mainSkills"
+                render={({ field: { onChange, onBlur, value } }) => (
+                  <Input
+                    onBlur={onBlur}
+                    onChangeText={onChange}
+                    value={value}
+                    errorMessage={errors.mainSkills?.message}
+                  />
+                )}
+              />
             </VStack>
 
             <VStack>
               <Text fontFamily="body" fontSize="sm" color="gray.500" py={2}>Nível</Text>
-              <InputSelect
-                placeholder="Selecione o nível"
-                color={THEME.colors.black}
-                options={level}
+              <Controller 
+                control={control}
+                name="level"
+                render={({ field: { onChange, onBlur, value } }) => (
+                  <InputSelect
+                    placeholder="Selecione o título"
+                    color={THEME.colors.black}
+                    options={level}
+                    onBlur={onBlur}
+                    onChangeText={onChange}
+                    value={value}
+                    errorMessage={errors.level?.message}
+                  />
+                )}
               />
             </VStack>
 
             <VStack>
               <Text fontFamily="body" fontSize="sm" color="gray.500" py={2}>Descrição</Text>
-              <Input height={56}/>
+              <Controller 
+                control={control}
+                name="description"
+                render={({ field: { onChange, onBlur, value } }) => (
+                  <Input
+                    height={56}
+                    onBlur={onBlur}
+                    onChangeText={onChange}
+                    value={value}
+                    errorMessage={errors.description?.message}
+                    isMultiline
+                  />
+                )}
+              />
             </VStack>
 
             <VStack>
               <Text fontFamily="body" fontSize="sm" color="gray.500" py={2}>Modelo de Trabalho</Text>
-              <InputSelect
-                placeholder="Selecione o modelo de trabalho"
-                color={THEME.colors.black}
-                options={workinModel}
+              <Controller 
+                control={control}
+                name="workingModel"
+                render={({ field: { onChange, onBlur, value } }) => (
+                  <InputSelect
+                    placeholder="Selecione o modelo de trabalho"
+                    color={THEME.colors.black}
+                    options={workingModel}
+                    onBlur={onBlur}
+                    onChangeText={onChange}
+                    value={value}
+                    errorMessage={errors.workingModel?.message}
+                  />
+                )}
               />
             </VStack>
 
@@ -78,23 +131,57 @@ export const AddClassified = () => {
               <HStack space={4}>
                 <VStack flex={1}>
                   <Text fontFamily="body" fontSize="sm" color="gray.500" py={1}>Cidade</Text>
-                  <Input />
+                  <Controller 
+                    control={control}
+                    name="city"
+                    render={({ field: { onChange, onBlur, value } }) => (
+                      <Input
+                        onBlur={onBlur}
+                        onChangeText={onChange}
+                        value={value}
+                        errorMessage={errors.city?.message}
+                      />
+                    )}
+                  />
                 </VStack>
 
                 <VStack w="70">
                   <Text fontFamily="body" fontSize="sm" color="gray.500" py={1}>UF</Text>
-                  <Input />
+                  <Controller 
+                    control={control}
+                    name="uf"
+                    render={({ field: { onChange, onBlur, value } }) => (
+                      <Input
+                        onBlur={onBlur}
+                        onChangeText={onChange}
+                        value={value}
+                        errorMessage={errors.uf?.message}
+                      />
+                    )}
+                  />
                 </VStack>
               </HStack>
             </VStack>
 
             <VStack>
               <Text fontFamily="body" fontSize="sm" color="gray.500" py={2}>Remuneração</Text>
-              <Input />
+              <Controller 
+                control={control}
+                name="remuneration"
+                render={({ field: { onChange, onBlur, value } }) => (
+                  <Input
+                    onBlur={onBlur}
+                    onChangeText={onChange}
+                    value={value} 
+                    errorMessage={errors.remuneration?.message}
+                    keyboardType="numeric"
+                  />
+                )}
+              />
             </VStack>
 
             <VStack pt={6} pb={2}>
-              <Button title="Cadastrar" onPress={handleAddClassified}/>
+              <Button title="Cadastrar" onPress={handleSubmit(onSubmit)}/>
             </VStack>
           </VStack>
         </ScrollView>
