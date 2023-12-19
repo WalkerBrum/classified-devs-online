@@ -22,9 +22,10 @@ export const InputSelect = (
     options, 
     isInvalid, 
     errorMessage = null,
+    value,
+    onChangeText,
     ...rest 
   }: InputSelectProps) => {
-  const [service, setService] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
   const invalid = !!errorMessage || isInvalid;
@@ -36,7 +37,7 @@ export const InputSelect = (
           <Input
             placeholder={placeholder}
             placeholderTextColor="gray.300"
-            value={service}
+            value={value}
             h={14}
             borderColor="gray.600" 
             color="gray.600"
@@ -75,7 +76,7 @@ export const InputSelect = (
                   color="gray.600"
                   key={option.value}
                   onPress={() => {
-                    setService(option.value);
+                    onChangeText?.(option.value);
                     setIsOpen(false);
                   }}
                 >
