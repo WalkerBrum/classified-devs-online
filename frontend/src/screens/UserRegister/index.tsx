@@ -78,6 +78,7 @@ export const UserRegister = () => {
                     onChangeText={onChange}
                     value={value}
                     errorMessage={errors.cpfOrCnpj?.message}
+                    keyboardType="numeric"
                   />
                 )}
               />
@@ -94,6 +95,7 @@ export const UserRegister = () => {
                     onChangeText={onChange}
                     value={value}
                     errorMessage={errors.phone?.message}
+                    keyboardType="numeric"
                   />
                 )}
               />
