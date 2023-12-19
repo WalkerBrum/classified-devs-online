@@ -8,11 +8,12 @@ import { Button } from '@components/Button';
 
 import { dataClassified } from '@data/classified';
 import { AuthNavigatorRoutesProps } from '@routes/app.routes';
+import { classifiedGetAll } from '@storage/classified/classifiedGetAll';
 
 export const MyClassified = () => {
   const { navigate } = useNavigation<AuthNavigatorRoutesProps>();
 
-  const handleNewClassified = () => {
+  const handleNewClassified = async () => {
     navigate('addClassified');
   }
 

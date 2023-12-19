@@ -11,7 +11,7 @@ export const level = [
   { label: "Sênior", value: "Sênior" },
 ];
 
-export const workinModel = [
+export const workingModel = [
   { label: "Remoto", value: "Remoto" },
   { label: "Híbrido", value: "Híbrido" },
   { label: "Presencial", value: "Presencial" },

@@ -16,10 +16,10 @@ export const userClassifiedSchema = () => {
     jobTitle: yup.string().required('Selecione um título para a vaga.'),
     mainSkills: yup.string().min(5, 'Deve conter pelo o menos 5 caracters.').required('Informe as principais tecnologias para a vaga.'),
     level: yup.string().required('Selecione o nível para a vaga.'),
-    description: yup.string().min(20, 'Deve conter pelo o menos 5 caracters.').required('Informe a descrição da vaga.'),
-    workinModel: yup.string().required('Selecione o modelo de trabalho.'),
+    description: yup.string().min(20, 'Deve conter pelo o menos 20 caracters.').required('Informe a descrição da vaga.'),
+    workingModel: yup.string().required('Selecione o modelo de trabalho.'),
     city: yup.string().min(3, 'Uma cidade deve ter pelo menos 3 caracteres.').required('Informe o nome da cidade.'),
     uf: yup.string().length(2, 'O UF de uma cidade deve ter 2 caracteres').required('Informe o UF'),
-    remuneration: yup.number().required('Informe a remuneração para o trabalho')
+    remuneration: yup.string().required('Informe a remuneração para o trabalho')
   })
 }

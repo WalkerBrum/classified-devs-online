@@ -8,7 +8,7 @@ export type ClassifiedStorage = {
   workingModel: string;
   city:string;
   uf: string;
-  remuneration: number;
+  remuneration: string;
   date_created: date;
   date_modificated: null | date;
 }

@@ -22,11 +22,6 @@ export const AppRoutes = () => {
   return (
     <Navigator screenOptions={{ headerShown: false }}>
       <Screen 
-        name="addClassified"
-        component={AddClassified}
-      />
-
-      <Screen 
         name="home"
         component={Home}
       />
@@ -44,6 +39,11 @@ export const AppRoutes = () => {
       <Screen 
         name="myClassified"
         component={MyClassified}
+      />
+
+      <Screen 
+        name="addClassified"
+        component={AddClassified}
       />
     </Navigator>
   );

@@ -19,7 +19,7 @@ export type ClassifiedDataForm = {
   workingModel: string;
   city:string;
   uf: string;
-  remuneration: number;
+  remuneration: string;
 }
 
 export const useClassifiedForm = () => {
@@ -45,8 +45,6 @@ export const useClassifiedForm = () => {
       await classifiedCreate(dataStorage);
 
       navigate('myClassified');
-
-      console.log(dataStorage);
 
     } catch (error) {
       if (error instanceof AppError) {
