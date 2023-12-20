@@ -9,6 +9,7 @@ import { AppError } from '@utils/AppError';
 import { usersGetAll } from '@storage/users/usersGetALL';
 import { AuthNavigatorRoutesProps } from '@routes/app.routes';
 import { RegisterContext } from '@contexts/RegisterProvider';
+import { classifiedGetAll } from '@storage/classified/classifiedGetAll';
 
 type LoginDataForm = {
   email: string;
@@ -28,6 +29,7 @@ export const useLoginForm = () => {
   const onSubmit = async (data: LoginDataForm) => {
     try {
       const usersRegister = await usersGetAll();
+      const usersClassified = await classifiedGetAll();
       const user = usersRegister.find(user => user.email === data.email);
 
       if (user) {
