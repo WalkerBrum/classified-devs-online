@@ -9,27 +9,30 @@ import { useFocusEffect } from '@react-navigation/native';
 export const useClassifiedGetAll = () => {
   const [classifiedStorage, setClassifiedStorage] = useState<ClassifiedStorage[]>([]);
 
-  useFocusEffect(useCallback(() => {
-    const fetchData = async () => {
-      try {
-        const storage = await classifiedGetAll();
-        setClassifiedStorage(storage);
-
-      } catch (error) {
-        if (error instanceof AppError) {
-          Alert.alert('Error fetching data', error.message);
-  
-        } else {
-          Alert.alert('Error fetching data', 'Não foi pegar os dados de classifiedStorage');
-          console.error('Error fetching data:', error);
-        }
+  const fetchDataClassified = useCallback(async () => {
+    try {
+      const storage = await classifiedGetAll();
+      setClassifiedStorage(storage);
+    } catch (error) {
+      if (error instanceof AppError) {
+        Alert.alert('Error fetching data', error.message);
+      } else {
+        Alert.alert('Error fetching data', 'Não foi possível pegar os dados de classifiedStorage');
+        console.error('Error fetching data:', error);
       }
+    }
+  }, []);
+
+  useFocusEffect(() => {
+    const asyncEffect = async () => {
+      await fetchDataClassified();
     };
 
-    fetchData();
-  }, []));
+    asyncEffect();
+  });
 
   return {
-    classifiedStorage
+    classifiedStorage,
+    fetchDataClassified
   };
 };

@@ -17,11 +17,12 @@ type DataProps = {
 
 type CardProps = {
   data: DataProps
-  hasButtons?: boolean; 
+  hasButtons?: boolean;
+  handleDelete?: (id: string) => void; 
 }
 
-export const Card = ({ data, hasButtons = false }: CardProps) => {
-  const { jobTitle, mainSkills, city, uf, remuneration, workingModel, level } = data;
+export const Card = ({ data, hasButtons = false, handleDelete }: CardProps) => {
+  const { id, jobTitle, mainSkills, city, uf, remuneration, workingModel, level } = data;
 
   const formattedMoney = moneyFormat(parseFloat(remuneration));
 
@@ -47,6 +48,7 @@ export const Card = ({ data, hasButtons = false }: CardProps) => {
               icon="trash-2"
               color="red"
               size={18}
+              onPress={() => handleDelete && handleDelete(id)}
             />
           </HStack>
         )}
