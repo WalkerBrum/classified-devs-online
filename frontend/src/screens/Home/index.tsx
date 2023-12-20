@@ -11,13 +11,15 @@ import { RegisterContext } from '@contexts/RegisterProvider';
 
 import { AuthNavigatorRoutesProps } from '@routes/app.routes';
 import { useLoginForm } from '@hooks/useLoginForm';
+import { classifiedGetAll } from '@storage/classified/classifiedGetAll';
+import { usersGetAll } from '@storage/users/usersGetALL';
 
 export const Home = () => {
   const { control, handleSubmit, onSubmit, errors } = useLoginForm();
   const { selectedTypeRegister } = useContext(RegisterContext);
   const { navigate } = useNavigation<AuthNavigatorRoutesProps>();
 
-  const handleUserRegister = () => {
+  const handleUserRegister = async () => {
     selectedTypeRegister('Cadastrar usuário');
 
     navigate('userRegister');
