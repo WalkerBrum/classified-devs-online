@@ -8,9 +8,17 @@ import { Button } from '@components/Button';
 
 import { dataClassified } from '@data/classified';
 import { AuthNavigatorRoutesProps } from '@routes/app.routes';
+import { useClassifiedGetAll } from '@hooks/useClassifiedGetAll';
+import { useContext } from 'react';
+import { RegisterContext } from '@contexts/RegisterProvider';
+import { filterClassifiedStorage } from '@utils/filterMyClassifiedStorage';
 
 export const MyClassified = () => {
   const { navigate } = useNavigation<AuthNavigatorRoutesProps>();
+  const { classifiedStorage } = useClassifiedGetAll();
+  const { dataUserLogin } = useContext(RegisterContext)
+
+  const MyClassifiedStorage = filterClassifiedStorage(classifiedStorage, dataUserLogin?.cpfOrCnpj);
 
   const handleNewClassified = async () => {
     navigate('addClassified');
@@ -23,7 +31,7 @@ export const MyClassified = () => {
   return (
     <VStack flex={1}>
       <Header
-        textHeader="LabsIF"
+        textHeader={dataUserLogin?.nameOrCorporateReason}
         textFirstButton="Todos Anúncios"
         secondButton
         navigation={handleGoBackAllClassified}
@@ -43,13 +51,13 @@ export const MyClassified = () => {
 
         <Box flex={1}>
           <SectionList
-            sections={dataClassified}
+            sections={MyClassifiedStorage}
             keyExtractor={(item) => item.id}
             renderItem={({ item }) => (
-              <Card data={item} />
+              <Card data={item} hasButtons />
             )}
-            renderSectionHeader={({ section: {date} }) => (
-              <TitleDate date={date} />
+            renderSectionHeader={({ section: { date_created } }) => (
+              <TitleDate date={date_created} />
             )}
             showsVerticalScrollIndicator={false}
           />
