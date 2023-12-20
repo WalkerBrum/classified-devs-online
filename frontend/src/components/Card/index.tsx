@@ -4,13 +4,15 @@ import { Box, HStack, Heading, VStack, Text } from "native-base";
 
 type DataProps = {
   id: string;
-  title: string;
-  mainStacks: string;
-  city: string;
-  uf: string;
-  remuneration: number;
-  workingModel: string;
+  cpfOrCnpj: string | undefined;
+  jobTitle: string;
+  mainSkills: string;
   level: string;
+  description: string;
+  workingModel: string;
+  city:string;
+  uf: string;
+  remuneration: string;
 }
 
 type CardProps = {
@@ -19,9 +21,9 @@ type CardProps = {
 }
 
 export const Card = ({ data, hasButtons = false }: CardProps) => {
-  const { title, mainStacks, city, uf, remuneration, workingModel, level } = data;
+  const { jobTitle, mainSkills, city, uf, remuneration, workingModel, level } = data;
 
-  const formattedMoney = moneyFormat(remuneration);
+  const formattedMoney = moneyFormat(parseFloat(remuneration));
 
   return (
     <Box 
@@ -31,7 +33,7 @@ export const Card = ({ data, hasButtons = false }: CardProps) => {
       p={5} 
     >
       <HStack justifyContent="space-between" alignItems="center">
-        <Heading fontFamily="heading" fontSize="md" color="gray.700">{title}</Heading>
+        <Heading fontFamily="heading" fontSize="md" color="gray.700">{jobTitle}</Heading>
 
         { hasButtons && (
           <HStack space={2}>
@@ -52,7 +54,7 @@ export const Card = ({ data, hasButtons = false }: CardProps) => {
 
       <VStack >
         <VStack py={2}>
-          <Text fontFamily="heading" fontSize="sm" color="gray.400">Principais tecnologias: {mainStacks}</Text>
+          <Text fontFamily="heading" fontSize="sm" color="gray.400">Principais tecnologias: {mainSkills}</Text>
         </VStack>
         
         <Text fontFamily="body" fontSize="sm" color="gray.400">Nível: {level}</Text>

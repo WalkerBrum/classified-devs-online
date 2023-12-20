@@ -56,13 +56,13 @@ export const Classified = () => {
 
         <Box flex={1}>
           <SectionList
-            sections={dataClassified}
+            sections={classifiedStorage}
             keyExtractor={(item) => item.id}
             renderItem={({ item }) => (
               <Card data={item} />
             )}
-            renderSectionHeader={({ section: {date} }) => (
-              <TitleDate date={date} />
+            renderSectionHeader={({ section: { date_created } }) => (
+              <TitleDate date={date_created} />
             )}
             showsVerticalScrollIndicator={false}
           />

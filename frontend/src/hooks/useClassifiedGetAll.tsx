@@ -6,7 +6,7 @@ import { ClassifiedStorage } from 'src/@types/classifiedStorage';
 import { AppError } from '@utils/AppError';
 
 export const useClassifiedGetAll = () => {
-  const [classifiedStorage, setClassifiedStorage] = useState<ClassifiedStorage[]>();
+  const [classifiedStorage, setClassifiedStorage] = useState<ClassifiedStorage[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
