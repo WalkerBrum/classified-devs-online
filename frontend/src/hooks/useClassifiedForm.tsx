@@ -34,12 +34,16 @@ export const useClassifiedForm = () => {
 
   const onSubmit = async (data: ClassifiedDataForm) => {
     try {
+      const currentDate = new Date();
+
       const dataStorage = {
-        id: uuidv4(),
-        cpfOrCnpj: dataUserLogin?.cpfOrCnpj,
-        ...data,
-        date_created: new Date(),
-        date_modificated: null
+        date_created: currentDate.toLocaleDateString('pt-BR'),
+        data: {
+          id: uuidv4(),
+          cpfOrCnpj: dataUserLogin?.cpfOrCnpj,
+          ...data,
+          date_modificated: null
+        }
       }
 
       await classifiedCreate(dataStorage);
