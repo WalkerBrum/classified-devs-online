@@ -14,7 +14,7 @@ import { useContext } from 'react';
 import { RegisterContext } from '@contexts/RegisterProvider';
 import { classifiedGetAll } from '@storage/classified/classifiedGetAll';
 
-export const Classified = async () => {
+export const Classified = () => {
   const { navigate } = useNavigation<AuthNavigatorRoutesProps>();
   const { dataUserLogin } = useContext(RegisterContext);
 
@@ -22,6 +22,8 @@ export const Classified = async () => {
     navigate('myClassified');
 
     const storage = await classifiedGetAll();
+
+    console.log(JSON.stringify(storage, null, 2));
   }
 
   const handleFilter = () => {

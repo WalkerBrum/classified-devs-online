@@ -29,7 +29,7 @@ export const useLoginForm = () => {
   const onSubmit = async (data: LoginDataForm) => {
     try {
       const usersRegister = await usersGetAll();
-      const usersClassified = await classifiedGetAll();
+      
       const user = usersRegister.find(user => user.email === data.email);
 
       if (user) {
