@@ -13,10 +13,12 @@ import { AuthNavigatorRoutesProps } from '@routes/app.routes';
 import { useContext } from 'react';
 import { RegisterContext } from '@contexts/RegisterProvider';
 import { classifiedGetAll } from '@storage/classified/classifiedGetAll';
+import { useClassifiedGetAll } from '@hooks/useClassifiedGetAll';
 
 export const Classified = () => {
   const { navigate } = useNavigation<AuthNavigatorRoutesProps>();
   const { dataUserLogin } = useContext(RegisterContext);
+  const { classifiedStorage } = useClassifiedGetAll();
 
   const handleMyClassified = async () => {
     navigate('myClassified');

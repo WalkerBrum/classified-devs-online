@@ -38,12 +38,12 @@ export const useClassifiedForm = () => {
 
       const dataStorage = {
         date_created: currentDate.toLocaleDateString('pt-BR'),
-        data: {
+        data: [{
           id: uuidv4(),
           cpfOrCnpj: dataUserLogin?.cpfOrCnpj,
           ...data,
           date_modificated: null
-        }
+        }]
       }
 
       await classifiedCreate(dataStorage);
