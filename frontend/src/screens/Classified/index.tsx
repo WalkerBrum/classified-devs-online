@@ -1,5 +1,6 @@
-import { HStack, Heading, VStack, SectionList, ScrollView, Box } from 'native-base';
+import { HStack, Heading, VStack, SectionList, Box } from 'native-base';
 import { useNavigation } from '@react-navigation/native';
+import { Alert } from 'react-native';
 
 import { Header } from '@components/Header'
 import { ButtonIcon } from '@components/ButtonIcon';
@@ -12,12 +13,16 @@ import { AuthNavigatorRoutesProps } from '@routes/app.routes';
 import { useContext } from 'react';
 import { RegisterContext } from '@contexts/RegisterProvider';
 
-export const Classified = () => {
+export const Classified = async () => {
   const { navigate } = useNavigation<AuthNavigatorRoutesProps>();
   const { dataUserLogin } = useContext(RegisterContext);
 
   const handleMyClassified = () => {
     navigate('myClassified');
+  }
+
+  const handleFilter = () => {
+    Alert.alert('Filtro', 'Funcionalidade ainda não implementada.')
   }
 
   return (
@@ -38,6 +43,7 @@ export const Classified = () => {
           <ButtonIcon
             icon="filter"
             color={THEME.colors.green[700]}
+            onPress={handleFilter}
           />
         </HStack>
 
