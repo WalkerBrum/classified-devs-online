@@ -10,6 +10,7 @@ import { AppError } from '@utils/AppError';
 import { classifiedCreate } from '@storage/classified/classifiedCreate';
 import { RegisterContext } from '@contexts/RegisterProvider';
 import { AuthNavigatorRoutesProps } from '@routes/app.routes';
+import { classifiedGetAll } from '@storage/classified/classifiedGetAll';
 
 export type ClassifiedDataForm = {
   jobTitle: string;
@@ -38,12 +39,12 @@ export const useClassifiedForm = () => {
 
       const dataStorage = {
         date_created: currentDate.toLocaleDateString('pt-BR'),
-        data: {
+        data: [{
           id: uuidv4(),
           cpfOrCnpj: dataUserLogin?.cpfOrCnpj,
           ...data,
           date_modificated: null
-        }
+        }]
       }
 
       await classifiedCreate(dataStorage);

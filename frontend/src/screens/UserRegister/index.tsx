@@ -10,13 +10,15 @@ import { Button } from '@components/Button';
 import { RegisterContext } from '@contexts/RegisterProvider';
 import { AuthNavigatorRoutesProps } from '@routes/app.routes';
 import { useRegisterForm } from '@hooks/useRegisterForm';
+import { usersGetAll } from '@storage/users/usersGetALL';
+import { classifiedGetAll } from '@storage/classified/classifiedGetAll';
 
 export const UserRegister = () => {
   const { typeRegister } = useContext(RegisterContext);
   const { navigate } = useNavigation<AuthNavigatorRoutesProps>()
   const { control, handleSubmit, onSubmit, formState: { errors }, } = useRegisterForm();
 
-  const handleGoBackHome = () => {
+  const handleGoBackHome = async () => {
     navigate('home');
   }
   
@@ -24,7 +26,7 @@ export const UserRegister = () => {
     <VStack flex={1}>
       <Header 
         textHeader="Pega Job, Dev!"
-        firstButton="Home"
+        textFirstButton="Home"
         navigation={handleGoBackHome}
       />
 

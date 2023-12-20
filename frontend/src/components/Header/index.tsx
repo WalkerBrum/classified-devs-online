@@ -6,13 +6,21 @@ import { Button } from '@components/Button';
 import { AuthNavigatorRoutesProps } from '@routes/app.routes';
 
 type HeaderProps = {
-  textHeader: string;
-  firstButton: string;
+  textHeader: string | undefined;
+  textFirstButton: string;
+  firstButton?: boolean;
   secondButton?: boolean;
   navigation: () => void;
 }
 
-export const Header = ({ textHeader, firstButton, secondButton = false, navigation }: HeaderProps) => {
+export const Header = (
+  { 
+    textHeader, 
+    textFirstButton, 
+    firstButton = true, 
+    secondButton = false, 
+    navigation 
+  }: HeaderProps) => {
   const { navigate } = useNavigation<AuthNavigatorRoutesProps>();
 
   const handleGoBackHome = () => {
@@ -38,13 +46,15 @@ export const Header = ({ textHeader, firstButton, secondButton = false, navigati
       </Heading>
 
       <VStack space={2}>
-        <Button 
-          title={firstButton}
-          variant="outline"
-          height={10}
-          fontSize="xs"
-          onPress={navigation}
-        />
+        {firstButton && (
+          <Button 
+            title={textFirstButton}
+            variant="outline"
+            height={10}
+            fontSize="xs"
+            onPress={navigation}
+          />
+        )}
 
         {secondButton && (
           <Button 

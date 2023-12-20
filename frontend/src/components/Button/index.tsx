@@ -24,7 +24,7 @@ export const Button = ({ title, variant = 'solid', height = 14, fontSize = 'sm',
         color={variant === "outline" ? "green.500" : "white"} 
         fontFamily="heading"
         fontSize={fontSize}
-        alignItems="center" 
+        alignItems="center"
       >
         {title}
       </Text>

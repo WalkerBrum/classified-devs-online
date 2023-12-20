@@ -24,7 +24,7 @@ export const AddClassified = () => {
     <VStack flex={1}>
       <Header
         textHeader="LabsIF"
-        firstButton="Meus Anúncios"
+        textFirstButton="Meus Anúncios"
         secondButton
         navigation={handleGoBackMyClassified}
       />

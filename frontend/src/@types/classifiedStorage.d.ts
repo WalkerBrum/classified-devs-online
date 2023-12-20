@@ -12,5 +12,5 @@ export type ClassifiedStorage = {
     uf: string;
     remuneration: string;
     date_modificated: null | date;
-  }
+  }[];
 }
