@@ -23,9 +23,9 @@ export const Classified = () => {
   const handleMyClassified = async () => {
     navigate('myClassified');
 
-    const storage = await classifiedGetAll();
+    // const storage = await classifiedGetAll();
 
-    console.log(JSON.stringify(storage, null, 2));
+    // console.log(JSON.stringify(storage, null, 2));
   }
 
   const handleFilter = () => {
