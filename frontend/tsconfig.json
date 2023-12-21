@@ -42,7 +42,10 @@
       ],
       "@schemas/*": [
         "./src/schemas/*"
-      ]
+      ],
+      "@test-utils/*": [
+        "./src/test-utils/*"
+      ],
     }
   }
 }
