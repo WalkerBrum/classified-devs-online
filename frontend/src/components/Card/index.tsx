@@ -42,12 +42,14 @@ export const Card = ({ data, hasButtons = false, handleDelete }: CardProps) => {
               icon="edit-2"
               color="orange"
               size={18}
+              testID="editButton"
             />
 
             <ButtonIcon 
               icon="trash-2"
               color="red"
               size={18}
+              testID="deleteButton"
               onPress={() => handleDelete && handleDelete(id)}
             />
           </HStack>
