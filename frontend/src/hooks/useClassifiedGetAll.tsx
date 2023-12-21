@@ -13,9 +13,11 @@ export const useClassifiedGetAll = () => {
     try {
       const storage = await classifiedGetAll();
       setClassifiedStorage(storage);
+
     } catch (error) {
       if (error instanceof AppError) {
         Alert.alert('Error fetching data', error.message);
+        
       } else {
         Alert.alert('Error fetching data', 'Não foi possível pegar os dados de classifiedStorage');
         console.error('Error fetching data:', error);

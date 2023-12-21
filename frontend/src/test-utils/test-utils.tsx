@@ -1,8 +1,13 @@
-// test-utils.js
-import { render } from '@testing-library/react-native';
+import { render, RenderOptions } from '@testing-library/react-native';
 import { NativeBaseProvider } from 'native-base';
+import React, { ReactElement } from 'react';
 
-const customRender = (children, options) => {
+type CustomRenderOptions = RenderOptions & {};
+
+const customRender = (
+  children: ReactElement,
+  options?: CustomRenderOptions
+) => {
   const inset = {
     frame: { x: 0, y: 0, width: 0, height: 0 },
     insets: { top: 0, left: 0, right: 0, bottom: 0 },

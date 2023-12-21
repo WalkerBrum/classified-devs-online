@@ -21,10 +21,10 @@ export const Header = (
     secondButton = false, 
     navigation 
   }: HeaderProps) => {
-  const { navigate } = useNavigation<AuthNavigatorRoutesProps>();
+  const  navigatio = useNavigation<AuthNavigatorRoutesProps>();
 
   const handleGoBackHome = () => {
-    navigate('home')
+    navigatio.navigate('home')
   }
   
   return (

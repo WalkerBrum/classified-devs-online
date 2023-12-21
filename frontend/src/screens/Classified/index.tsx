@@ -51,6 +51,7 @@ export const Classified = () => {
             icon="filter"
             color={THEME.colors.green[700]}
             onPress={handleFilter}
+            testID="filterButton"
           />
         </HStack>
 
