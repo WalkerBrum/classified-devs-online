@@ -21,6 +21,7 @@ module.exports = function(api) {
             '@theme': './src/theme',
             '@data': './src/data',
             '@schemas': './src/schemas',
+            '@test-utils': './src/test-utils',
           }
         },
       ],
