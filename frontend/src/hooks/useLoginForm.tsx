@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import bcrypt from 'react-native-bcrypt';
 
 import { userLoginSchema } from '@schemas/userLogin';
 import { AppError } from '@utils/AppError';
@@ -10,6 +11,7 @@ import { usersGetAll } from '@storage/users/usersGetALL';
 import { AuthNavigatorRoutesProps } from '@routes/app.routes';
 import { RegisterContext } from '@contexts/RegisterProvider';
 import { classifiedGetAll } from '@storage/classified/classifiedGetAll';
+import { comparePassword } from '@utils/crypto/comparePassword';
 
 type LoginDataForm = {
   email: string;
@@ -33,7 +35,9 @@ export const useLoginForm = () => {
       const user = usersRegister.find(user => user.email === data.email);
 
       if (user) {
-        if (data.password === user.password) {
+        const passwordMatch = await comparePassword(data.password, user.password);
+
+        if (passwordMatch) {
           getDataUserLogin({
             nameOrCorporateReason: user.nameOrCorporateReason,
             cpfOrCnpj: user.cpfOrCnpj,

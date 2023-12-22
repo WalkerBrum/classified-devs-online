@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 
-import { isValidCPF } from '@utils/validateCpf';
-import { isValidCNPJ } from '@utils/validateCnpj';
+import { isValidCPF } from '@utils/validate/validateCpf';
+import { isValidCNPJ } from '@utils/validate/validateCnpj';
 
 export const userRegisterSchema = (typeRegister: 'CPF' | 'CNPJ' | undefined) => {
   return yup.object({

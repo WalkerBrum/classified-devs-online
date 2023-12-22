@@ -7,6 +7,5 @@ export type userStorage = {
   city: string;
   uf: string;
   password: string;
-  repeatPassword: string;
   date_created: date;
 }

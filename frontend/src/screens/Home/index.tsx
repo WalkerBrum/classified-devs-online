@@ -22,6 +22,9 @@ export const Home = () => {
   const handleUserRegister = async () => {
     selectedTypeRegister('Cadastrar usuário');
 
+    await classifiedGetAll();
+    await usersGetAll();
+
     navigate('userRegister');
   }
 

@@ -4,11 +4,13 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Alert } from 'react-native';
 
+import { AppError } from '@utils/AppError';
+import { hashPassword } from '@utils/crypto/hashPassword';
+
 import { AuthNavigatorRoutesProps } from '@routes/app.routes';
 import { userRegisterSchema } from '../schemas/userRegister';
 import { RegisterContext } from '@contexts/RegisterProvider';
 import { userCreate } from '@storage/users/userCreate';
-import { AppError } from '@utils/AppError';
 
 type RegisterFormDataProps = {
   nameOrCorporateReason: string;
@@ -33,9 +35,14 @@ export const useRegisterForm = () => {
 
   const onSubmit = async (data: RegisterFormDataProps) => {
     try {
+      const { password, repeatPassword, ...userWithoutPasswords } = data;
+
+      const hashPasswordValue = await hashPassword(password);
+
       const userStorage = { 
-        ...data,
-        typeUser: typeRegister === "CPF" ? 'user' : 'advertiser', 
+        ...userWithoutPasswords,
+        typeUser: typeRegister === "CPF" ? 'user' : 'advertiser',
+        password: hashPasswordValue, 
         date_created: new Date(),  
       }; 
 
