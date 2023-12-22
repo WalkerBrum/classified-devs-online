@@ -1,6 +1,7 @@
-import { ButtonIcon } from "@components/ButtonIcon";
-import { moneyFormat } from "@utils/moneyFormat";
-import { Box, HStack, Heading, VStack, Text } from "native-base";
+import { Box, HStack, Heading, VStack, Text } from 'native-base';
+
+import { ButtonIcon } from '@components/ButtonIcon';
+import { moneyFormat } from '@utils/moneyFormat';
 
 type DataProps = {
   id: string;
@@ -18,10 +19,11 @@ type DataProps = {
 type CardProps = {
   data: DataProps
   hasButtons?: boolean;
-  handleDelete?: (id: string) => void; 
+  handleDelete?: (id: string) => void;
+  handleEdit?: () => void;
 }
 
-export const Card = ({ data, hasButtons = false, handleDelete }: CardProps) => {
+export const Card = ({ data, hasButtons = false, handleDelete, handleEdit }: CardProps) => {
   const { id, jobTitle, mainSkills, city, uf, remuneration, workingModel, level } = data;
 
   const formattedMoney = moneyFormat(parseFloat(remuneration));
@@ -43,6 +45,7 @@ export const Card = ({ data, hasButtons = false, handleDelete }: CardProps) => {
               color="orange"
               size={18}
               testID="editButton"
+              onPress={() => handleEdit && handleEdit()}
             />
 
             <ButtonIcon 

@@ -1,4 +1,5 @@
-import { render, fireEvent } from '@test-utils/test-utils';
+import { render } from '@test-utils/test-utils';
+
 import { Input } from './index';
 
 describe('Component: Input', () => {

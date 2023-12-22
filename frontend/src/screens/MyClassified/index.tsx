@@ -14,9 +14,8 @@ import { RegisterContext } from '@contexts/RegisterProvider';
 import { filterClassifiedStorage } from '@utils/filterMyClassifiedStorage';
 import { classifiedDeleteById } from '@storage/classified/classifiedDeleteById';
 import { AppError } from '@utils/AppError';
-import { classifiedGetAll } from '@storage/classified/classifiedGetAll';
 import { NoneRegister } from '@components/NoneRegister';
-
+import { usersGetAll } from '@storage/users/usersGetAll';
 
 export const MyClassified = () => {
   const { navigate } = useNavigation<AuthNavigatorRoutesProps>();
@@ -24,6 +23,10 @@ export const MyClassified = () => {
   const { dataUserLogin } = useContext(RegisterContext)
 
   const MyClassifiedStorage = filterClassifiedStorage(classifiedStorage, dataUserLogin?.cpfOrCnpj);
+
+  const handleEditClassified = () => {
+    Alert.alert('Edição', 'Funcionalidade ainda não implementada.');
+  }
 
   const handleDeleteClassified = async (id: string) => {
     try {
@@ -46,8 +49,12 @@ export const MyClassified = () => {
     navigate('addClassified');
   }
 
-  const handleGoBackAllClassified = () => {
+  const handleGoBackAllClassified = async () => {
     navigate('classified');
+
+    const storage = await usersGetAll();
+
+    console.log(storage);
   }
 
   return (
@@ -82,6 +89,7 @@ export const MyClassified = () => {
                     <Card 
                       data={item} 
                       handleDelete={() => handleDeleteClassified(item.id)}
+                      handleEdit={() => handleEditClassified()}
                       hasButtons
                     />
                   )}

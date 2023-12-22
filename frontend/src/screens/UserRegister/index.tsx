@@ -10,8 +10,6 @@ import { Button } from '@components/Button';
 import { RegisterContext } from '@contexts/RegisterProvider';
 import { AuthNavigatorRoutesProps } from '@routes/app.routes';
 import { useRegisterForm } from '@hooks/useRegisterForm';
-import { usersGetAll } from '@storage/users/usersGetALL';
-import { classifiedGetAll } from '@storage/classified/classifiedGetAll';
 
 export const UserRegister = () => {
   const { typeRegister } = useContext(RegisterContext);

@@ -2,10 +2,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { USERS_COLLECTION } from '@storage/storageConfig';
 import { AppError } from '@utils/AppError';
-
 import { userStorage } from 'src/@types/userStorage';
 
-import { usersGetAll } from './usersGetALL';
+import { usersGetAll } from './usersGetAll';
 
 export const userCreate = async(newUser: userStorage) => {
   try {

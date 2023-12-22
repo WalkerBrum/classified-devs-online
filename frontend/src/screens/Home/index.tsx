@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Controller } from 'react-hook-form';
 
 import { Header } from './components/Header';
+
 import { Input } from '@components/Input';
 import { Button } from '@components/Button';
 
@@ -11,8 +12,6 @@ import { RegisterContext } from '@contexts/RegisterProvider';
 
 import { AuthNavigatorRoutesProps } from '@routes/app.routes';
 import { useLoginForm } from '@hooks/useLoginForm';
-import { classifiedGetAll } from '@storage/classified/classifiedGetAll';
-import { usersGetAll } from '@storage/users/usersGetALL';
 
 export const Home = () => {
   const { control, handleSubmit, onSubmit, errors } = useLoginForm();

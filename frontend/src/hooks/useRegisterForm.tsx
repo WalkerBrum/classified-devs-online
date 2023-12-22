@@ -5,7 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Alert } from 'react-native';
 
 import { AuthNavigatorRoutesProps } from '@routes/app.routes';
-import { userRegisterSchema } from '../schemas/userRegister';
+import { userRegisterSchema } from '@schemas/userRegister';
 import { RegisterContext } from '@contexts/RegisterProvider';
 import { userCreate } from '@storage/users/userCreate';
 import { AppError } from '@utils/AppError';

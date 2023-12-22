@@ -1,6 +1,7 @@
 import { Feather } from '@expo/vector-icons';
 
 import { render } from '@test-utils/test-utils';
+
 import { ButtonIcon } from './index'; 
 
 describe("Component: ButtonIcon", () => {

@@ -1,4 +1,4 @@
-import {  Center, Heading } from "native-base"
+import {  Center, Heading } from 'native-base';
 
 export const NoneRegister = () => {
   return (

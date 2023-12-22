@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { DataUserLoginProps } from "src/@types/userLogin";
+import { useState } from 'react';
+
+import { DataUserLoginProps } from 'src/@types/userLogin';
 
 export const useDataLogin = () => {
   const [dataUserLogin, setDataUserLogin] = useState<DataUserLoginProps>();

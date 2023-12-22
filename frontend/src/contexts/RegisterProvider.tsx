@@ -1,6 +1,7 @@
+import { ReactNode } from 'react';
+
 import { useDataLogin } from '@hooks/useDataLogin';
 import { selectedRegisterType, useRegister } from '@hooks/useRegister';
-import { ReactNode } from 'react';
 
 type ProviderContextProps = {
   children: ReactNode
