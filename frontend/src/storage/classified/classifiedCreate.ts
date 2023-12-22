@@ -1,7 +1,9 @@
-import { ClassifiedStorage } from "src/@types/classifiedStorage";
-import { classifiedGetAll } from "./classifiedGetAll";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { CLASSIFIED_COLLECTION } from "@storage/storageConfig";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import { CLASSIFIED_COLLECTION } from '@storage/storageConfig';
+import { ClassifiedStorage } from 'src/@types/classifiedStorage';
+
+import { classifiedGetAll } from './classifiedGetAll';
 
 
 export const classifiedCreate = async (newClassified: ClassifiedStorage) => {

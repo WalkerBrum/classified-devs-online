@@ -6,10 +6,9 @@ import { useNavigation } from '@react-navigation/native';
 
 import { userLoginSchema } from '@schemas/userLogin';
 import { AppError } from '@utils/AppError';
-import { usersGetAll } from '@storage/users/usersGetALL';
+import { usersGetAll } from '@storage/users/usersGetAll';
 import { AuthNavigatorRoutesProps } from '@routes/app.routes';
 import { RegisterContext } from '@contexts/RegisterProvider';
-import { classifiedGetAll } from '@storage/classified/classifiedGetAll';
 
 type LoginDataForm = {
   email: string;

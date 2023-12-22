@@ -1,4 +1,4 @@
-import { Heading } from "native-base"
+import { Heading } from 'native-base';
 
 type TitleDateProps = {
   date: string

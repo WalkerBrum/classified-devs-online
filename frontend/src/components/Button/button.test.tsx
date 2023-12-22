@@ -1,4 +1,3 @@
-
 import { render, fireEvent } from '@test-utils/test-utils';
 
 import { Button } from './index';

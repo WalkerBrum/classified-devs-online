@@ -4,7 +4,7 @@ import '@testing-library/jest-native/extend-expect';
 import { render } from '@test-utils/test-utils';
 import { TEST_THEME } from '@test-utils/test-theme';
 
-import { TitleDate } from './index'; // Substitua pelo caminho real do seu componente
+import { TitleDate } from './index'; 
 
 describe('Component: TitleDate', () => {
   it('renders the date correctly', () => {

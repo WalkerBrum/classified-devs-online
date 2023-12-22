@@ -1,5 +1,5 @@
-import React from 'react';
 import { render, fireEvent } from '@test-utils/test-utils';
+
 import { InputSelect } from './index';
 
 const mockOptions = [

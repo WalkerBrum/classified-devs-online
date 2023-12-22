@@ -2,9 +2,10 @@ import { useCallback, useState } from 'react';
 import { Alert } from 'react-native';
 
 import { classifiedGetAll } from '@storage/classified/classifiedGetAll';
-import { ClassifiedStorage } from 'src/@types/classifiedStorage';
 import { AppError } from '@utils/AppError';
 import { useFocusEffect } from '@react-navigation/native';
+
+import { ClassifiedStorage } from 'src/@types/classifiedStorage';
 
 export const useClassifiedGetAll = () => {
   const [classifiedStorage, setClassifiedStorage] = useState<ClassifiedStorage[]>([]);

@@ -2,7 +2,6 @@ import { useNavigation } from '@react-navigation/native';
 import { HStack, Heading, VStack } from 'native-base';
 
 import { Button } from '@components/Button';
-
 import { AuthNavigatorRoutesProps } from '@routes/app.routes';
 
 type HeaderProps = {

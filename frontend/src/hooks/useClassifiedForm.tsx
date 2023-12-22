@@ -10,7 +10,7 @@ import { AppError } from '@utils/AppError';
 import { classifiedCreate } from '@storage/classified/classifiedCreate';
 import { RegisterContext } from '@contexts/RegisterProvider';
 import { AuthNavigatorRoutesProps } from '@routes/app.routes';
-import { classifiedGetAll } from '@storage/classified/classifiedGetAll';
+
 
 export type ClassifiedDataForm = {
   jobTitle: string;

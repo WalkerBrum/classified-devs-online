@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import { HStack, Heading, VStack, SectionList, Box } from 'native-base';
 import { useNavigation } from '@react-navigation/native';
 import { Alert } from 'react-native';
@@ -8,12 +9,9 @@ import { Card } from '@components/Card';
 import { TitleDate } from '@components/TitleDate';
 import { NoneRegister } from '@components/NoneRegister';
 
-import { dataClassified } from '@data/classified';
 import { THEME } from '@theme/index';
 import { AuthNavigatorRoutesProps } from '@routes/app.routes';
-import { useContext } from 'react';
 import { RegisterContext } from '@contexts/RegisterProvider';
-import { classifiedGetAll } from '@storage/classified/classifiedGetAll';
 import { useClassifiedGetAll } from '@hooks/useClassifiedGetAll';
 
 export const Classified = () => {
@@ -23,14 +21,10 @@ export const Classified = () => {
 
   const handleMyClassified = async () => {
     navigate('myClassified');
-
-    // const storage = await classifiedGetAll();
-
-    // console.log(JSON.stringify(storage, null, 2));
   }
 
   const handleFilter = () => {
-    Alert.alert('Filtro', 'Funcionalidade ainda não implementada.')
+    Alert.alert('Filtro', 'Funcionalidade ainda não implementada.');
   }
 
   return (

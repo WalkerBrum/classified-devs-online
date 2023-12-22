@@ -1,6 +1,6 @@
 import { render } from '@test-utils/test-utils';
 
-import { Header } from './';
+import { Header } from './index';
 
 describe("Component: Header", () => {
   it("should be rendered with your site name", () => {

@@ -1,5 +1,6 @@
 import { render, fireEvent } from '@test-utils/test-utils';
-import { Card } from './index'; // Replace with the actual path to your component file
+
+import { Card } from './index'; 
 
 const mockData = {
   id: '1',

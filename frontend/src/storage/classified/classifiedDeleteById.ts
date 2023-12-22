@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { CLASSIFIED_COLLECTION } from '@storage/storageConfig';
+
 import { classifiedGetAll } from './classifiedGetAll';
 
 export const classifiedDeleteById = async (id: string) => {

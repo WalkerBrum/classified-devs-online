@@ -1,6 +1,7 @@
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 
 import { render, fireEvent } from '@test-utils/test-utils';
+
 import { Header } from './index'; 
 
 const mockHeaderProps = {

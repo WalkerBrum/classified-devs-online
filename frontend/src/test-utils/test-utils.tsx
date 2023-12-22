@@ -1,6 +1,6 @@
+import { ReactElement } from 'react';
 import { render, RenderOptions } from '@testing-library/react-native';
 import { NativeBaseProvider } from 'native-base';
-import React, { ReactElement } from 'react';
 
 type CustomRenderOptions = RenderOptions & {};
 
