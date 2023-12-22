@@ -6,6 +6,7 @@ import { Header } from '@components/Header'
 import { ButtonIcon } from '@components/ButtonIcon';
 import { Card } from '@components/Card';
 import { TitleDate } from '@components/TitleDate';
+import { NoneRegister } from '@components/NoneRegister';
 
 import { dataClassified } from '@data/classified';
 import { THEME } from '@theme/index';
@@ -55,19 +56,26 @@ export const Classified = () => {
           />
         </HStack>
 
-        <Box flex={1}>
-          <SectionList
-            sections={classifiedStorage}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => (
-              <Card data={item} />
-            )}
-            renderSectionHeader={({ section: { date_created } }) => (
-              <TitleDate date={date_created} />
-            )}
-            showsVerticalScrollIndicator={false}
-          />
-        </Box>
+        
+          {classifiedStorage.length > 0 ? 
+            (
+              <Box flex={1}>
+                <SectionList
+                  sections={classifiedStorage}
+                  keyExtractor={(item) => item.id}
+                  renderItem={({ item }) => (
+                    <Card data={item} />
+                  )}
+                  renderSectionHeader={({ section: { date_created } }) => (
+                    <TitleDate date={date_created} />
+                  )}
+                  showsVerticalScrollIndicator={false}
+                />
+              </Box>
+            ) : (
+              <NoneRegister />
+            )
+          }
       </VStack>
     </VStack>
   )
