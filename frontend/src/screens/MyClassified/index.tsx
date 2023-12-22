@@ -15,6 +15,7 @@ import { filterClassifiedStorage } from '@utils/filterMyClassifiedStorage';
 import { classifiedDeleteById } from '@storage/classified/classifiedDeleteById';
 import { AppError } from '@utils/AppError';
 import { classifiedGetAll } from '@storage/classified/classifiedGetAll';
+import { NoneRegister } from '@components/NoneRegister';
 
 
 export const MyClassified = () => {
@@ -70,23 +71,30 @@ export const MyClassified = () => {
           />
         </HStack>
 
-        <Box flex={1}>
-          <SectionList
-            sections={MyClassifiedStorage}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => (
-              <Card 
-                data={item} 
-                handleDelete={() => handleDeleteClassified(item.id)}
-                hasButtons
-              />
-            )}
-            renderSectionHeader={({ section: { date_created } }) => (
-              <TitleDate date={date_created} />
-            )}
-            showsVerticalScrollIndicator={false}
-          />
-        </Box>
+        
+          {MyClassifiedStorage.length > 0 ? 
+            (
+              <Box flex={1}>
+                <SectionList
+                  sections={MyClassifiedStorage}
+                  keyExtractor={(item) => item.id}
+                  renderItem={({ item }) => (
+                    <Card 
+                      data={item} 
+                      handleDelete={() => handleDeleteClassified(item.id)}
+                      hasButtons
+                    />
+                  )}
+                  renderSectionHeader={({ section: { date_created } }) => (
+                    <TitleDate date={date_created} />
+                  )}
+                  showsVerticalScrollIndicator={false}
+                />
+              </Box>
+            ) : (
+              <NoneRegister />
+            )
+          }
       </VStack>
     </VStack>
   )
